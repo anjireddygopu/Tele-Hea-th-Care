@@ -1,0 +1,352 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+
+<link rel="import" href="script.html">
+<title>Tele Healthcare</title>
+
+<script src="../expertjs/expertregistraion.js"></script>
+</head>
+<body>
+
+<section id="wrapper" class="login-register">
+  <div class="login-box login-sidebar">
+    <div class="white-box">
+      <form class="form-horizontal form-material" id="loginform" >
+        <a href="javascript:void(0)" class="text-center db"><img src="../../plugins/images/logo-dark.png" alt="Home" /><br/><img src="../../plugins/images/text-dark.png" alt="Home" /></a>  
+        
+        <div class="form-group m-t-40">
+          <div class="col-xs-12">
+            <input class="form-control" type="text" required placeholder="Username" id="oldusername" style="padding:10px 0;">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <input class="form-control" type="password" required  placeholder="Password" id="olduserpassword" style="padding:10px 0;">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <div class="checkbox checkbox-primary pull-left p-t-0">
+              <input id="checkbox-signup" type="checkbox">
+              <label for="checkbox-signup"> Remember me </label>
+            </div>
+            <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> </div>
+        </div>
+        
+        <div class="form-group text-center m-t-20">
+          <div class="col-xs-12">
+            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="button" id="olduserlogin">Log In</button>
+          </div>
+        </div>
+      </form>
+      <form class="form-horizontal" id="recoverform" action="index.html">
+        <div id="forgot">
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <h3>Recover Password</h3>
+            <p class="text-muted">Enter your Mobile Number and instructions will be sent to you! </p>
+          </div>
+        </div>
+         <div class="form-group ">
+        <div class="col-md-4">
+            <select class="form-control" type="text"  id="mobilec">
+            <option value="91">91</option>
+            </select>
+          </div>
+          <div class="col-md-8">
+            <input class="form-control" type="number" required placeholder="Mobile Number" id="number" style="padding:10px 0;">
+          </div>
+        </div>
+        <div class="form-group ">
+         <div class="col-md-3">
+		<button class="fcbtn btn btn-info btn-outline btn-rounded btn-1f" onclick="loadDoc()">Send</button>
+		</div>
+		<div class="col-md-3">
+		<a href="expertlogin.html" class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f" >Cancel</a>
+		</div>
+        </div>
+        </div>
+        
+        <div id="emailforgot">
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <h3>Recover Password</h3>
+            <p class="text-muted">Enter your Email Address and instructions will be sent to you! </p>
+          </div>
+        </div>
+        <div class="form-group ">
+        
+          <div class="col-xs-12">
+            <input class="form-control" type="text" required placeholder="Email Address" id="emailid" style="padding:10px 0;">
+          </div>
+        </div>
+        <div class="form-group ">
+         <div class="col-md-3">
+		<button class="fcbtn btn btn-info btn-outline btn-rounded btn-1f" onclick="emailload()">Send</button>
+		</div>
+		<div class="col-md-3">
+		<a href="expertlogin.html" class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f" >Cancel</a>
+		</div>
+        </div>
+        </div>
+   
+        <div id="emailorphone">
+         <div class="form-group ">
+          <div class="col-xs-12">
+            <h3>Recover Password</h3>
+            <p class="text-muted">Choose Mobile or Email to reset password </p>
+          </div>
+        </div>
+        <div class="form-group ">
+         <div class="col-md-3">
+		<button class="fcbtn btn btn-info btn-outline btn-rounded btn-1f" id="emailbutton">Email</button>
+		</div>
+		<div class="col-md-3">
+		<button class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f" id="mobilebutton">Mobile</button>
+		</div>
+        </div>
+        </div>
+        
+        <div id="otp">
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <h3>Recover Password</h3>
+            <p class="text-muted">Check your Mobile and Enter OTP </p>
+          </div>
+        </div>
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <input class="form-control" type="text" required placeholder="Enter OTP" id="otp1" style="padding:10px 0;">
+          </div>
+        </div>
+        <div class="form-group text-center m-t-20">
+          <div class="col-xs-12">
+            <button id="otpbtn" class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">OK</button>
+          </div>
+        </div>
+        </div>
+        
+        <div id="emailotp">
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <h3>Recover Password</h3>
+            <p class="text-muted">Check your Email and Enter OTP </p>
+          </div>
+        </div>
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <input class="form-control" type="text" required placeholder="Enter OTP" id="otp2" style="padding:10px 0;">
+          </div>
+        </div>
+        <div class="form-group text-center m-t-20">
+          <div class="col-xs-12">
+            <button id="emailotpbtn" class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">OK</button>
+          </div>
+        </div>
+        </div>        
+        
+        
+        
+       <div id="new">
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <h3>Recover Password</h3>
+            <p class="text-muted">Enter Your New Password </p>
+          </div>
+        </div>
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <input class="form-control" type="text" required placeholder="Your New password" id="pwd1" style="padding:10px 0;">
+          </div>
+        </div>
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <input class="form-control" type="text" required placeholder="Your Again password" id="pwd2" style="padding:10px 0;">
+          </div>
+        </div>
+        <div class="form-group text-center m-t-20">
+          <div class="col-xs-12">
+            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" onclick="changepassword()" type="submit">OK</button>
+          </div>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+$.getJSON("host.json", function(json) {
+	var ipadd=json.ip;
+	sessionStorage.setItem("ip-add",ipadd);
+});
+var ipadd=sessionStorage.getItem("ip-add");
+document.getElementById("mobilebutton").addEventListener("click",function(){
+	$("#forgot").show();
+	$("#emailorphone").hide();
+});	
+document.getElementById("emailbutton").addEventListener("click",function(){
+	$("#emailforgot").show();
+	$("#emailorphone").hide();
+});	
+
+$(document).ready(function(){
+	$("#emailorphone").show();
+	$("#emailforgot").hide();
+	$("#forgot").hide();
+	$("#otp").hide();
+	$("#emailotp").hide();
+	$("#new").hide();
+	document.getElementById("olduserlogin").addEventListener("click", olduser);	
+	
+	
+});
+function loadDoc(){
+	var code=$("#mobilec").val();
+	var number=$("#number").val();
+	sessionStorage.setItem("mobile",number);
+	var phnumber={mobilecode:code,nnumber:number};
+	var Data=JSON.stringify(phnumber);
+	$.ajax({
+		url : "https://"+ipadd+":3000/mobilenumber",
+		type : "POST",
+		data : Data, //Data sent to server
+		contentType : "application/json", 
+		processdata : true
+	})
+		.done( function(json) {
+		 	if(json.status === 200){
+		 		$("#forgot").hide();
+				$("#otp").show();			
+			}
+			else{
+				alert(json.message);
+			} 
+		})
+		.fail(function(jqXHR,exception) {
+			errormessage(jqXHR,exception);			
+			});		
+}
+$('#otpbtn').on('click',function(){
+	$.ajax({
+		type : "GET",
+		url : "https://"+ipadd+":3000/otp-from-db",
+		data : "",
+		success : function(json) {
+			var result = JSON.parse(json);
+			$.each(result, function(index, item) {
+				var otp1=item.m_otp;
+				var otp2=$("#otp1").val();
+				if(otp1==otp2){
+					$("#new").show();
+					$("#otp").hide();
+				}
+				else{
+				alert('Please cheack your OTP and Enter');	
+				}						
+			});
+		},
+		error : function(err) {
+			alert(err);
+		}
+	});
+});
+
+function emailload(){
+	var emailid=$("#emailid").val();
+	var emailids={email:emailid};
+	sessionStorage.setItem("email",emailid);
+	var Data=JSON.stringify(emailids);
+	$.ajax({
+		url : "https://"+ipadd+":3000/email",
+		type : "POST",
+		data : Data, //Data sent to server
+		contentType : "application/json", 
+		processdata : true
+	})
+		.done( function(json) {
+		 	if(json.status === 200){
+		 		//$("#emailorphone").hide();
+		 		$("#emailforgot").hide();
+		 		$("#emailotp").show();
+			}
+			else{
+				alert(json.message);
+			} 
+		})
+		.fail(function(jqXHR,exception) {
+			errormessage(jqXHR,exception);			
+			});	
+}
+
+$('#emailotpbtn').on('click',function(){
+	$.ajax({
+		type : "GET",
+		url : "https://"+ipadd+":3000/otp-from-dba",
+		data : "",
+		success : function(json) {
+			var result = JSON.parse(json);
+			$.each(result, function(index, item) {
+				var otp1=item.otp;
+				var otp2=$("#otp2").val();
+				if(otp1==otp2){
+					$("#emailotp").hide();
+					$("#new").show();
+				}
+				else{
+				alert('Please cheack your OTP and Enter');	
+				}						
+			});
+		},
+		error : function(err) {
+			alert(err);
+		}
+	});
+});
+function changepassword(){
+	var mobile=sessionStorage.getItem("mobile");
+	var email=sessionStorage.getItem("email");
+	var password=$("#pwd1").val();
+	var postData={"r_password":password,"r_mobile":mobile,"r_email":email};
+	$.ajax({
+		type :"put",
+		url :"https://"+ipadd+":3000/forgetpassword",
+		data : JSON.stringify(postData),
+		contentType : "application/json",
+		async:false
+		})
+	.done(function(json) {
+			window.open("login.html","_self");
+		})
+	.fail(function(jqXHR,exception) {
+		errormessage(jqXHR,exception);			
+		})	
+	
+}
+function errormessage(jqXHR, exception) {
+	   var msg = '';
+  if (jqXHR.status === 0) {
+      msg = 'Not connect.\n Verify Network.';
+  } else if (jqXHR.status === 404) {
+      msg = 'Requested page not found. [404]';
+  } else if (jqXHR.status === 500) {
+      msg = 'Internal Server Error [500].';
+  } else if (exception === 'parsererror') {
+      msg = 'Requested JSON parse failed.';
+  } else if (exception === 'timeout') {
+      msg = 'Time out error.';
+  } else if (exception === 'abort') {
+      msg = 'Ajax request aborted.';
+  }else if (jqXHR.status === 401) {
+      msg = 'Invalid credentials';
+  } else if (jqXHR.status === 403) {
+      msg = 'username and password incorrect';
+  }
+  else {
+      msg = 'Uncaught Error.\n' + jqXHR.responseText;
+  }
+ alert(msg);
+  }
+</script>
+</body>
+</html>

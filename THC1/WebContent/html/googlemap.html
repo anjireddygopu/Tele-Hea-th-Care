@@ -1,0 +1,226 @@
+<link rel="import" href="script.html">
+<div class="container-fluid">
+	<div class="row bg-title">
+		<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+			<h4 class="page-title">Google Map</h4>
+		</div>
+	</div>
+	<!--row -->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="white-box">
+				<div id="map" style="width: 1000px;height: 400px;"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0Tdx1g7RkC1xkJOolme3L5Ey7ZfUFMJA&callback=initMap"
+async defer></script>
+
+
+<script>
+	 
+	
+	
+		function initMap() {
+		var la=	$("#latitude").val();
+		
+		var lo=	$("#longitude").val();
+		
+			var broadway = {
+				info: '<strong>Yashoda Hospital(Main)</strong><br>\
+					Raj Bhavan Rd, Matha Nagar, <br>\
+					Somajiguda, Hyderabad, Telangana 500082<br>\
+							<a href="https://www.google.co.in/maps/dir/Vijaya+Health+Care,+73,+Red+Cross+Road,+Shivaji+Nagar,+Secunderabad,+Telangana+500003/Andhra+Hosiery,+Goutam+Nagar,+Badi+Chowdi,+Kachiguda,+Hyderabad,+Telangana/@17.4130294,78.4556169,13z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x3bcb9a2265555555:0x56924a3554f60830!2m2!1d78.498709!2d17.438983!1m5!1m1!1s0x3bcb99cd87dc821b:0x59fbfdb51a27cd7c!2m2!1d78.486671!2d17.385044">Get Directions</a>',
+				lat: 17.428205,
+				long: 78.456271
+			};
+	
+			var belmont = {
+				info: '<strong>Yashoda Hospital</strong><br>\
+					Green Park, Jeedimetla, Hyderabad, Telangana 500067 <br>\
+							<a href="https://goo.gl/maps/PHfsWTvgKa92">Get Directions</a>',
+				lat: 17.505737,
+				long: 78.475091
+			};
+	
+			var sheridan = {
+				info: '<strong>Yashoda Hospital</strong><br>\r\
+					 Kothapet Rd, Margadarshi Colony, Kothapet,<br>\
+					 Hyderabad, Telangana 500035<br>\
+							<a href="https://goo.gl/maps/QGUrqZPsYp92">Get Directions</a>',
+				lat: 17.371004,
+				long: 78.542712
+			};
+			var kapra = {
+					info: '<strong>Yashoda Hospital</strong><br>\r\
+						 Kothapet Rd, Margadarshi Colony, Kothapet,<br>\
+						 Hyderabad, Telangana 500035<br>\
+								<a href="https://goo.gl/maps/QGUrqZPsYp92">Get Directions</a>',
+					lat: 17.488191,
+					long: 78.564598
+				};
+			var chilkur = {
+					info: '<strong>Yashoda Hospital</strong><br>\r\
+						 Kothapet Rd, Margadarshi Colony, Kothapet,<br>\
+						 Hyderabad, Telangana 500035<br>\
+								<a href="https://goo.gl/maps/QGUrqZPsYp92">Get Directions</a>',
+					lat: 17.342095,
+					long: 78.309048
+				};
+			var nizampet = {
+					info: '<strong>Yashoda Hospital</strong><br>\r\
+						 Kothapet Rd, Margadarshi Colony, Kothapet,<br>\
+						 Hyderabad, Telangana 500035<br>\
+								<a href="https://goo.gl/maps/QGUrqZPsYp92">Get Directions</a>',
+					lat: 17.528472,
+					long: 78.362509
+				};
+			var custom = {
+					info: '<strong>Vijay Hospital</strong><br>\r\
+						227, Migh Colony, S R Nagar, Migh Colony,<br>\
+						M.I.G.H colony, PBR Estate, New Bhoiguda, Bhoiguda,<br>\
+						Hyderabad, Telangana 500038 <br>\
+								<a href="https://goo.gl/maps/QGUrqZPsYp92">Get Directions</a>',
+					lat: la,
+					long: lo
+				};
+		
+			var locations = [
+			  [broadway.info, broadway.lat, broadway.long, 0],
+			  [belmont.info, belmont.lat, belmont.long, 1],
+			  [sheridan.info, sheridan.lat, sheridan.long, 2],
+			  [ custom.info,custom.lat,custom.long, 3],
+			  [nizampet.info, nizampet.lat, nizampet.long, 2],
+			  [kapra.info, kapra.lat, kapra.long, 2],
+			  [chilkur.info, chilkur.lat, chilkur.long, 2],
+			];
+	
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 11,
+				center: new google.maps.LatLng(17.428205, 78.456271),
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			});
+			
+			var infowindow = new google.maps.InfoWindow({});
+	
+			var marker, i;
+			
+			for (i = 0; i < locations.length; i++) {
+				marker = new google.maps.Marker({							    
+					position: new google.maps.LatLng(locations[0][1], locations[0][2]),
+					map: map,
+					animation: google.maps.Animation.DROP
+					
+				});
+				for(i=1;i < locations.length; i++){
+				marker = new google.maps.Marker({							    
+					position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+					map: map,
+					icon: 'GoogleMapsMarkers/map3.png',
+					animation: google.maps.Animation.DROP
+				});
+	
+				google.maps.event.addListener(marker, 'click', (function (marker, i) {
+					return function () {
+						infowindow.setContent(locations[i][0]);
+						infowindow.open(map, marker);
+					}
+				})(marker, i));
+			}
+			}
+		  
+				  
+			  var flightPlanCoordinates = [
+				  {lat: 17.428205, lng: 78.456271},
+				  {lat: 17.505737, lng: 78.475091},
+				  
+				  {lat: 17.428205, lng: 78.456271},
+				  {lat: 17.371004, lng: 78.542712},
+				  
+				  {lat: 17.428205, lng: 78.456271},
+				  {lat: 17.528472, lng: 78.362509},
+				  
+				  {lat: 17.428205, lng: 78.456271},
+				  {lat: 17.488191, lng: 78.564598},
+				  
+				  {lat: 17.428205, lng: 78.456271},
+				  {lat: 17.342095, lng: 78.309048}
+				 
+				 
+				];
+			
+				var flightPath = new google.maps.Polyline({
+				  path: flightPlanCoordinates,
+				  geodesic: true,
+				  strokeColor: '#FF0000',
+				  strokeOpacity: 1.0,
+				  strokeWeight: 2
+				});
+			 
+				flightPath.setMap(map);
+				
+				
+				
+				
+				
+				var p1 = new google.maps.LatLng(17.428205, 78.456271);
+				var p2 = new google.maps.LatLng(17.505737, 78.475091);
+				var p3 = new google.maps.LatLng(17.342095, 78.309048);
+				var markerP1 = new google.maps.Marker({
+					position: p1,
+					map: map
+				});
+				var markerP2 = new google.maps.Marker({
+					position: p2,
+					map: map
+				});
+				var markerP3 = new google.maps.Marker({
+					position: p3,
+					map: map
+				});
+			
+				google.maps.event.addListener(map, 'projection_changed', function () {
+					var p1 = map.getProjection().fromLatLngToPoint(markerP1.getPosition());
+					var p2 = map.getProjection().fromLatLngToPoint(markerP2.getPosition());
+					var p3 = map.getProjection().fromLatLngToPoint(markerP3.getPosition());
+					var e = new google.maps.Point(p1.x - p3.x, p1.y - p3.y);
+					var m = new google.maps.Point(e.x / 2, e.y / 2);
+					var o = new google.maps.Point(0, 0.05);
+					var c = new google.maps.Point(m.x + o.x, m.y + o.y);
+					var curveMarker2 = new google.maps.Marker({
+						position: markerP1.getPosition(),
+						icon: {
+							path: "M 0 0 q " + c.x + " " + c.y + " " + e.x + " " + e.y,
+							scale: 24,
+							strokeWeight: 3,
+							fillColor: '#009933',
+							fillOpacity: 0,
+							rotation: 180,
+							anchor: new google.maps.Point(0, 0)
+						}
+					});
+					curveMarker2.setMap(map);
+					google.maps.event.addListener(map, 'zoom_changed', function () {
+						var zoom = map.getZoom();
+						var scale = 1 / (Math.pow(2, -zoom));
+						var icon = {
+							path: "M 0 0 q " + c.x + " " + c.y + " " + e.x + " " + e.y,
+							scale: scale,
+							strokeWeight: 3,
+							fillColor: '#009933',
+							fillOpacity: 0,
+							rotation: 180,
+							anchor: new google.maps.Point(0, 0)
+						};
+						curveMarker2.setIcon(icon);
+					});
+				});
+			   
+			
+		}
+		
+		
+		</script>
+	

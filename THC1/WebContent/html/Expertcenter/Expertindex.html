@@ -1,0 +1,168 @@
+<html>
+<head>
+<meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <link rel="import" href="script.html">
+   <script>
+	   history.pushState(null, null, document.URL);
+	window.addEventListener('popstate', function () {
+	alert("please close the window....!")
+	   history.pushState(null, null, document.URL);
+	});
+
+
+ 	$("body").on("contextmenu",function(e){
+	   return false;
+});
+    $(function(){
+    	  $("#Header").load("Header.html"); 
+    	// $("#page-wrapper").load("expert-center-details.html"); 
+    	  $("#Leftmenu").load("ExpertLeftMenu.html"); 
+    	  $("#Footer").load("footer1.html"); 
+    	  $("#Leftmenu").show();
+    	});
+   
+    		
+    </script>
+    <script>
+    function cases(){
+    	$("#page-wrapper").load("expert-center-details.html");
+    }
+    function allergy(){
+    	$("#page-wrapper").load("Allergy_list.html");
+    }
+    function habits(){
+    	$("#page-wrapper").load("Habitcase.html");
+    }
+    function vitals(){
+    	$("#page-wrapper").load("vitals-list.html");
+    }
+    function familydiseases(){
+    	$("#page-wrapper").load("editfamilydiseasesget.html");
+    }
+    function generalExam(){
+    	$("#page-wrapper").load("exam_list.html");
+    }
+    function sign(){
+    	$("#page-wrapper").load("getsign.html");
+    }
+    function symptom(){
+    	$("#page-wrapper").load("getsymptom.html");
+    }
+    function diet(){
+		$("#page-wrapper").load("Diet.html");
+				}
+
+    function drug(){
+		$("#page-wrapper").load("Drug.html");
+				}
+    function labtest(){
+		$("#page-wrapper").load("labtestget.html");
+				}
+    function immunization(){
+		$("#page-wrapper").load("patient_immunization_txn_dtls2.html");
+				}
+
+		function feedback(){
+					$("#page-wrapper").load("feedback.html");
+							}
+		function expertcenter(){
+	    	$("#page-wrapper").load("expert-center.html");
+	    	}
+		 function doctor(){
+		    	$("#page-wrapper").load("doctor-registration.html");
+		    	}
+		 function pasthistory(){
+		    	$("#page-wrapper").load("past-history-list.html");
+		    	}
+		 function chief(){
+			 $("#page-wrapper").load("chief-complaint-list.html");
+		 }
+		 function diagnosis(){
+			 $("#page-wrapper").load("diseasesGet.html");
+		 }
+		 function googlemap(){
+		$("#page-wrapper").load("../googlemap.html"); 
+			}
+			function video(){
+		
+    	$("#page-wrapper").load("../chat-center.html"); 
+	}
+	function report(){
+    	$("#page-wrapper").load("file-list.html"); 
+	}
+		</script>
+</head>
+<body>
+<div id="wrapper">
+<div id="Header">
+</div>
+<div id="Leftmenu">
+</div>
+<div id="Body">
+<div id="page-wrapper">
+</div>
+</div>
+<div id="Footer">
+</div>
+
+</div>
+  <script>
+    var tokenKey=sessionStorage.getItem('token');
+   var token=tokenKey;
+   var ipadd=sessionStorage.getItem("ip-add");
+   function logout(){
+	   var postdata={tokenkey:token};
+	   $.ajax({
+			type :"post",
+			url :"https://"+ipadd+":3000/expertlogout",
+			data :JSON.stringify(postdata),
+			contentType : "application/json",
+			async:false
+			})
+		.done(function(json) {
+			if(json.status === 200){
+				localStorage.clear();
+				sessionStorage.clear();
+				alert(json.message);
+				window.open("expertlogin.html","_self");
+			}
+			else{
+				alert(json.message);
+			}
+			})
+		.fail(function(jqXHR,exception) {
+			errormessage(jqXHR,exception);			
+			})		
+   }
+   function errormessage(jqXHR, exception) {
+	   var msg = '';
+  if (jqXHR.status === 0) {
+      msg = 'Not connect.\n Verify Network.';
+  } else if (jqXHR.status === 404) {
+      msg = 'Requested page not found. [404]';
+  } else if (jqXHR.status === 500) {
+      msg = 'Internal Server Error [500].';
+  } else if (exception === 'parsererror') {
+      msg = 'Requested JSON parse failed.';
+  } else if (exception === 'timeout') {
+      msg = 'Time out error.';
+  } else if (exception === 'abort') {
+      msg = 'Ajax request aborted.';
+  }else if (jqXHR.status === 401) {
+      msg = 'Invalid credentials';
+  } else if (jqXHR.status === 403) {
+      msg = 'username and password incorrect';
+  }
+  else {
+      msg = 'Uncaught Error.\n' + jqXHR.responseText;
+  }
+ alert(msg);
+  }
+    </script>
+    
+</body>
+</html>

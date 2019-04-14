@@ -1,0 +1,285 @@
+ <link rel="import" href="script.html">
+<script src="js/allergy.js"></script>
+			<div class="container-fluid">
+				<div class="row bg-title">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">Allergy</h4>
+					</div>
+					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+						<button id="addbtn"
+							class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">New</button>
+					</div>
+				</div>
+				<div class="row" id="listdiv">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<h3 class="box-title m-b-0"></h3>
+							<div class="table-responsive">
+								<table id="allergymaster" class="display nowrap" cellspacing="0"
+									width="100%">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Name</th>
+											<th>Active</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="adddiv">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<form id="commentForm">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="allergy_name" class="control-label col-md-4">
+												Name</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control"
+													placeholder="Enter Allergy Name" id="allergy_name"
+													name="allergy_name">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 checkbox checkbox-success checkbox-circle">
+								<input id="test" type="checkbox" name="check" checked> <label
+									for="checkbox-15">Active</label>
+									</div>
+									<div class="col-md-1">
+										<button
+											class="fcbtn btn btn-info btn-outline btn-rounded btn-1f"
+											type="submit" id="save">Save</button>
+									</div>
+									<div class="col-md-1">
+										<button
+											class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f"
+											type="reset" onclick="cancel()">Cancel</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="editdiv">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<form id="editForm">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="control-label col-md-4">Name</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control"
+													placeholder="Enter Allergy Name" id="edit_allergy_name"
+													name="edit_allergy_name">
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="checkbox checkbox-success checkbox-circle">
+								<input id="active" type="checkbox" name="check" checked> <label
+									for="checkbox-15">Active</label>
+									</div>
+									</div>
+									<div class="col-sm-1">
+										<button
+											class="fcbtn btn btn-info btn-outline btn-rounded btn-1f"
+											type="submit" id="update">Update</button>
+									</div>
+									<div class="col-sm-1">
+										<button
+											class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f"
+											type="reset" onclick="cancel()">Cancel</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+	<script>
+		function cancel() {
+			display();
+			$("#addbtn").show();
+			$('#addbtn').show();
+		}
+		$(document).ready(function() {
+			$('#adddiv').hide();
+			$('#editdiv').hide();
+
+			$("#addbtn").click(function() {
+				$('#editdiv').hide();
+				$('#listdiv').hide();
+				$('#adddiv').show();
+				$('#addbtn').hide();
+			});
+		});
+		$('#example tbody').on('click', 'tr.group', function() {
+			var currentOrder = table.order()[0];
+			if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+				table.order([ 2, 'desc' ]).draw();
+			} else {
+				table.order([ 2, 'asc' ]).draw();
+			}
+		});
+		$("#adddiv")
+				.ready(
+						function() {
+							jQuery.validator
+									.addMethod("noSpace", function(value,
+											element) {
+										return value.indexOf(" ") < 0
+												&& value != "";
+									},
+											"Please don't enter only spaces and don't leave it empty");
+							$("#commentForm")
+									.validate(
+											{
+												rules : {
+													allergy_name : {
+														required : true,
+														noSpace : false
+														
+													}
+												},
+												messages : {
+													allergy_name : {
+														required : "Please provide a allergy name",
+														
+													},
+												},
+												submitHandler : function() {
+													myfunction();
+												},
+												errorElement : "em",
+												errorPlacement : function(
+														error, element) {
+													error
+															.addClass("help-block");
+													element
+															.parents(
+																	".col-md-6")
+															.addClass(
+																	"has-feedback");
+													if (element.prop("type") === "checkbox") {
+														error
+																.insertAfter(element
+																		.parent("div"));
+													} else {
+														error
+																.insertAfter(element);
+													}
+												},
+												highlight : function(element,
+														errorClass, validClass) {
+													$(element)
+															.parents(
+																	".col-md-6")
+															.addClass(
+																	"has-error")
+															.removeClass(
+																	"has-success");
+												},
+												unhighlight : function(element,
+														errorClass, validClass) {
+													$(element)
+															.parents(
+																	".col-md-6")
+															.removeClass(
+																	"has-error");
+												},
+											});
+							jQuery.validator
+									.addMethod("noSpace", function(value,
+											element) {
+										return value.indexOf(" ") < 0
+												&& value != "";
+									},
+											"Please don't enter only spaces and don't leave it empty");
+						
+						});
+		$("#editdiv")
+				.ready(
+						function() {
+							jQuery.validator
+									.addMethod("noSpace", function(value,
+											element) {
+										return value.indexOf(" ") < 0
+												&& value != "";
+									},
+											"Please don't enter only spaces and don't leave it empty");
+							
+							$("#editForm")
+									.validate(
+											{
+												rules : {
+													edit_allergy_name : {
+														required : true,
+														
+														noSpace :false
+														
+													}
+												},
+												messages : {
+													edit_allergy_name : {
+														required : "Please provide a allergy name"
+												
+													},
+												},
+												submitHandler : function() {
+													update();
+												},
+												errorElement : "em",
+												errorPlacement : function(
+														error, element) {
+													error
+															.addClass("help-block");
+													element
+															.parents(
+																	".col-sm-6")
+															.addClass(
+																	"has-feedback");
+													if (element.prop("type") === "checkbox") {
+														error
+																.insertAfter(element
+																		.parent("div"));
+													} else {
+														error
+																.insertAfter(element);
+													}
+												},
+												highlight : function(element,
+														errorClass, validClass) {
+													$(element)
+															.parents(
+																	".col-sm-6")
+															.addClass(
+																	"has-error")
+															.removeClass(
+																	"has-success");
+												},
+												unhighlight : function(element,
+														errorClass, validClass) {
+													$(element)
+															.parents(
+																	".col-sm-6")
+															.removeClass(
+																	"has-error");
+												},
+											});
+							jQuery.validator
+									.addMethod("noSpace", function(value,
+											element) {
+										return value.indexOf(" ") < 0
+												&& value != "";
+									},
+											"Please don't enter only spaces and don't leave it empty");
+							
+						});
+	</script>

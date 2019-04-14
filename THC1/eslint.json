@@ -1,0 +1,11 @@
+{
+	"plugins":{
+		"eslint":{
+			"config":{
+				"rules": {
+		    		"indent": 2
+		  		}
+			}
+		}
+	}
+}

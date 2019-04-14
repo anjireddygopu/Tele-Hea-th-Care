@@ -1,0 +1,148 @@
+<script src="js/measures.js"></script>
+<link rel="import" href="script.html">
+<div class="container-fluid">
+				<div class="row bg-title">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">UoM</h4>
+					</div>
+					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+						<a href="javascript:add()"
+							class="btn btn-info pull-right m-l-10 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"
+							id="add">New</a>
+					</div>
+				</div>
+				<!--row -->
+				<div class="row" id="list">
+					<div class="col-sm-12">
+						<div class="white-box">
+							
+							<div class="table-responsive">
+								<table id="unitofmeasuretable" class="display nowrap" cellspacing="0"
+									width="100%">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Name</th>
+											<th>Description</th>
+											<th>Active</th>
+											<th>Actions</th>
+										</tr>
+									</thead>
+
+									<tbody id="dataa">
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="row" id="register">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<form id="unitofmeasureform">
+								<div class="row">
+									<div class="col-md-8">
+										<div class="form-group">
+
+                                          <div class="col-md-6">
+											<label class="control-label col-md-4">UOM Name</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control" id="uomname"
+													name="uomname" placeholder="Unit Name">
+												<!--<span class="help-block"> This is inline help </span>-->
+											</div>
+											
+                                           </div>
+                                           <div class="col-md-6">
+											<label class="control-label col-md-4">Description</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control" id="uomdesc"
+													name="uomdesc" placeholder="Unit Description">
+												<!--<span class="help-block"> This is inline help </span>-->
+											</div>
+											
+                                           </div>
+                                           
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="checkbox checkbox-success checkbox-circle">
+											<input id="check1" type="checkbox" name="check1"> <label
+												for="check1"> Active</label>
+										</div>
+									</div>
+
+
+									<div class="col-md-1">
+										<button type="submit"
+											class="fcbtn btn btn-info btn-outline btn-rounded btn-1f" id="save">Save</button>
+									</div>
+									<div class="col-md-1">
+										<button type="reset"
+											class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f"
+											onClick="cancel()">Cancel</button>
+									</div>
+
+
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+				<div class="row" id="edit">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<form id="editform">
+								<div class="row">
+									<div class="col-md-8">
+										<div class="form-group">
+										<div class="col-md-6">
+											<label class="control-label col-md-4">UOM Name</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control" id="uomnameedit"
+													name="uomname1" placeholder="Unit Name">
+												<!--<span class="help-block"> This is inline help </span>-->
+											</div>
+											</div>
+											<div class="col-md-6">
+											<label class="control-label col-md-4">Description</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control" id="uomdescedit"
+													name="uomdesc1" placeholder="Unit Description">
+												<!--<span class="help-block"> This is inline help </span>-->
+											</div>
+											</div>
+											
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="checkbox checkbox-success checkbox-circle">
+											<input id="check2" type="checkbox"> <label
+												for="check2"> Active</label>
+										</div>
+									</div>
+
+									<div class="col-md-1">
+										<button
+											class="fcbtn btn btn-info btn-outline btn-rounded btn-1f"
+											type="update" id="update">Update</button>
+									</div>
+									<div class="col-md-1">
+										<button type="reset"
+											class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f"
+											onClick="cancel()">Cancel</button>
+									</div>
+
+
+								</div>
+
+							</form>
+						</div>
+
+					</div>
+				</div>
+				</div>
+

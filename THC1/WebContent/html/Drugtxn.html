@@ -1,0 +1,71 @@
+<link rel="import" href="script.html">
+<script src="js/Drugtxn.js"></script> 
+			
+			<div class="container-fluid">
+				<div class="row bg-title">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">Drug Details</h4>
+					</div>
+					
+				</div>
+				<nav class="navbar navbar-default navbar-static-top m-b-0">			                 
+			   <ul class="nav navbar-top-links navbar-left hidden-xs">
+					<li>
+						<form role="search" class="app-search hidden-xs">
+							<input type="text" id="searchform" placeholder="Search..." class="form-control" style="border:2px solid rgb(124, 81, 209)">
+							<a onClick="showDrugList()"><i class="fa fa-search"></i></a>
+						</form>
+					</li>
+				</ul>
+				</nav>
+				
+				<div class="row">
+					<div class="col-md-12 col-lg-6 col-sm-12">
+						<div class="white-box" id="list">
+							<div class="table-responsive">
+								<table id="search_drug" class="display dataTable" cellspacing="0" width="100%" style="padding:0;margin:0px">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Name</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-6 col-sm-12">
+						<div class="white-box" id="list2">
+							<div class="table-responsive">
+								<table id="drug_selection" class="display dataTable" cellspacing="0" width="100%" style="padding:0;margin:0px">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Name</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12" id="textarea">
+						<div class="form-group">
+							<label class="control-label col-md-2">Additional Notes</label>
+							<textarea rows="5" class="col-md-6" id="text"
+								placeholder="Enter Your Text here.."></textarea>
+						</div>
+						<button onclick="cancel()" type="reset"
+					        class="btn btn-danger pull-right m-l-10 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Cancel</button>
+						<button onclick="update()" id="update"
+							class="btn btn-primary pull-right m-l-10 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Update</button>
+						<button onclick="post()" id="submit"
+							class="btn btn-primary pull-right m-l-10 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Submit</button>
+					</div>
+				</div>
+
+			</div>
+		

@@ -1,0 +1,520 @@
+<link rel="import" href="script.html">
+<script src="js/pdf.js"></script>
+<script src="../plugins/bower_components/jquery/dist/jspdf.min.js"></script>
+<script
+	src="../plugins/bower_components/jquery/dist/jspdf.plugin.autotable.js"></script>
+<script
+	src="../plugins/bower_components/jquery/dist/jspdf.plugin.autotable.min.js"></script>
+<script
+	src="../plugins/bower_components/jquery/dist/jspdf.plugin.autotable.src.js"></script>
+<style>
+@CHARSET "UTF-8";
+
+.page-break {
+	page-break-after:always;
+	page-break-inside: avoid;
+	clear: both;
+}
+
+.page-break-before {
+	page-break-before: always;
+	page-break-inside: avoid;
+	clear: both;
+}
+</style>
+
+	<div class="container-fluid" id="html-2-pdfwrapper">
+		<div class="report">
+			<button type="button" class="btn-rounded btn btn-success "
+				onclick="generate()">Report</button>
+		</div>
+		<div class="row" id="table">
+			<div class="col-sm-12">
+				<form action="#" class="form-horizontal">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="allergy_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Allergy Details</th>
+											<th></th>
+										</tr>
+										<tr>
+											<th>Name</th>
+											<th>Description</th>
+										</tr>
+									</thead>
+									<tbody id="allergy">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="habit_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Habit Details</th>
+											<th></th>
+										</tr>
+										<tr>
+											<th>Name</th>
+											<th>Description</th>
+										</tr>
+									</thead>
+									<tbody id="habit">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="immunization_dtls"
+									border=1>
+									<thead>
+										<tr>
+											<th>Immunization Details</th>
+											<th></th>
+											<th></th>
+										</tr>
+										<tr>
+											<th>Immunization Name</th>
+											<th>Dose Amount</th>
+											<th>Dose Unit</th>
+										</tr>
+									</thead>
+									<tbody id="immunization">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="past_dtls" border=1>
+									<thead>
+										<tr>
+											<th>History Details</th>
+											<th></th>
+											<th></th>
+										</tr>
+										<tr>
+											<th>Medical History</th>
+											<th>Surgical History</th>
+											<th>Medication History</th>
+										</tr>
+									</thead>
+									<tbody id="past">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="family_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Family Details</th>
+											<th></th>
+											<th></th>
+											<th></th>
+											<th></th>
+											<th></th>
+											<th></th>
+										</tr>
+										<tr>
+											<th>Disease Name</th>
+											<th>Mother</th>
+											<th>Father</th>
+											<th>Brother</th>
+											<th>Sister</th>
+											<th>Paternal</th>
+											<th>Maternal</th>
+										</tr>
+									</thead>
+									<tbody id="family">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="complaint_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Chief Complaint Details</th>
+										</tr>
+										<tr>
+											<th>Complaint</th>
+										</tr>
+									</thead>
+									<tbody id="complaint">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive" id="abcd">
+								<table class="table" id="sign_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Sign Details</th>
+											<th></th>
+										</tr>
+										<tr>
+											<th>Name</th>
+											<th>Description</th>
+										</tr>
+									</thead>
+									<tbody id="sign">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="symptom_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Symptoms Details</th>
+											<th></th>
+										</tr>
+										<tr>
+											<th>Name</th>
+											<th>Description</th>
+										</tr>
+									</thead>
+									<tbody id="symptom">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="txn_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Exam Details</th>
+											<th></th>
+											<th></th>
+											<th></th>
+											<th></th>
+											<th></th>
+										</tr>
+										<tr>
+											<th>Exam Type</th>
+											<th>Exam Specific</th>
+											<th>Status</th>
+											<th>Description</th>
+											<th>Progress</th>
+											<th>Date</th>
+										</tr>
+									</thead>
+									<tbody id="exam">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="diet_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Diet Details</th>
+										</tr>
+										<tr>
+											<th>Name</th>
+										</tr>
+									</thead>
+									<tbody id="diet">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="drug_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Drug Details</th>
+										</tr>
+										<tr>
+											<th>Name</th>
+										</tr>
+									</thead>
+									<tbody id="drug">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="disease_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Diagnosis Details</th>
+										</tr>
+										<tr>
+											<th>Name</th>
+										</tr>
+									</thead>
+									<tbody id="disease">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped" id="test_dtls" border=1>
+									<thead>
+										<tr>
+											<th>Test Details</th>
+										</tr>
+										<tr>
+											<th>Name</th>
+										</tr>
+									</thead>
+									<tbody id="test">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+	var mrno=sessionStorage.getItem("mrno");
+	var eid=sessionStorage.getItem("eid");
+	var vid=sessionStorage.getItem("vid");
+	var firstname=sessionStorage.getItem("firstname");
+	var lastname=sessionStorage.getItem("lastname");
+	var gender=sessionStorage.getItem("gender");
+		var base64Img = null;
+		imgToBase64('../plugins/images/h2.jpg', function(base64) {
+			base64Img = base64;
+		});
+		margins = {
+			top : 100,
+			bottom : 50,
+			left : 30,
+			width : 550
+		};
+		generate = function() {
+			var pdf = new jsPDF('p', 'pt', 'a4');
+			var totalPagesExp = "{total_pages_count_string}";
+			var leftTextMargin = 14;
+
+			pdf.autoTableSetDefaults({
+				headerStyles : {
+					fillColor : [ 155, 89, 182 ]
+				},
+				margin : {
+					top : 120
+				},
+				addPageContent : function(data) {
+					pdf.setFontSize(14);
+					pdf.setFontStyle('normal');
+					if (base64Img) {
+						pdf.addImage(base64Img, 'JPEG',
+								data.settings.margin.left, 10, 40, 40);
+					}
+					pdf.text("Patient Information",
+							data.settings.margin.left + 50, 40);
+					pdf.text("Medical Record No :"+mrno+"",
+							data.settings.margin.left + 50, 73);
+					pdf.text("Episode Id :"+eid+"",
+							data.settings.margin.left + 330, 73);
+					pdf.text("Visit Id :"+vid+"", data.settings.margin.left + 450,
+							73)
+					pdf.text("Patient Name :"+firstname+""+lastname+" ",
+							data.settings.margin.left + 50, 100);
+					pdf.text("Gender :"+gender+" ",
+							data.settings.margin.left + 250, 100);
+					pdf.setLineCap(2);
+					pdf.line(20, 120, data.settings.margin.width + 43, 120);
+				}
+			});
+			var allergy = pdf.autoTableHtmlToJson(document
+					.getElementById("allergy_dtls"));
+			pdf.setFontStyle('bold');
+			pdf.text('Patient History:', 40, 130);
+			pdf.autoTable(allergy.columns, allergy.data, {
+				tableWidth : 'wrap',
+				columnStyles : {
+					1 : {
+						columnWidth : 150
+					}
+				},
+				startY : 150
+			});
+			var habit = pdf.autoTableHtmlToJson(document
+					.getElementById("habit_dtls"));
+			pdf.autoTable(habit.columns, habit.data, {
+				margin : {
+					left : 300
+				},
+				tableWidth : '40',
+				startY : 150
+			});
+			var immunization = pdf.autoTableHtmlToJson(document
+					.getElementById("immunization_dtls"));
+			pdf.autoTable(immunization.columns, immunization.data, {
+				tableWidth : 'wrap',
+				startY : 240
+			});
+			var past = pdf.autoTableHtmlToJson(document
+					.getElementById("past_dtls"));
+			pdf.autoTable(past.columns, past.data, {
+				margin : {
+					left : 300
+				},
+				tableWidth : '40',
+				startY : 240
+			});
+			var family = pdf.autoTableHtmlToJson(document
+					.getElementById("family_dtls"));
+			pdf.autoTable(family.columns, family.data, {
+				startY : pdf.autoTable.previous.finalY + 20
+			});
+			var complaint = pdf.autoTableHtmlToJson(document
+					.getElementById("complaint_dtls"));
+			pdf.text('Case Details:', 40, 510);
+			pdf.autoTable(complaint.columns, complaint.data, {
+				tableWidth : 'wrap',
+				columnStyles : {
+					0 : {
+						columnWidth : 230
+					}
+				},
+				startY : 530
+			});
+			var sign = pdf.autoTableHtmlToJson(document
+					.getElementById("sign_dtls"));
+			pdf.autoTable(sign.columns, sign.data, {
+				margin : {
+					left : 300
+				},
+				tableWidth : '40',
+				startY : 530
+			});
+			var symptom = pdf.autoTableHtmlToJson(document
+					.getElementById("symptom_dtls"));
+			pdf.autoTable(symptom.columns, symptom.data, {
+				startY : pdf.autoTable.previous.finalY + 30
+			});
+			var exam = pdf.autoTableHtmlToJson(document
+					.getElementById("txn_dtls"));
+			pdf.autoTable(exam.columns, exam.data, {
+				startY : pdf.autoTable.previous.finalY + 30
+			});
+			var diet = pdf.autoTableHtmlToJson(document
+					.getElementById("diet_dtls"));
+			pdf.autoTable(diet.columns, diet.data, {
+				tableWidth : 'wrap',
+				columnStyles : {
+					0 : {
+						columnWidth : 230
+					}
+				},
+				startY : pdf.autoTable.previous.finalY + 50
+			});
+			var drug = pdf.autoTableHtmlToJson(document
+					.getElementById("drug_dtls"));
+			pdf.autoTable(drug.columns, drug.data, {
+				margin : {
+					left : 300
+				},
+				tableWidth : '40',
+
+				startY : pdf.autoTable.previous.finalY-45
+			});
+			var disease = pdf.autoTableHtmlToJson(document
+					.getElementById("disease_dtls"));
+			pdf.autoTable(disease.columns, disease.data, {
+				tableWidth : 'wrap',
+				columnStyles : {
+					0 : {
+						columnWidth : 230
+					}
+				},
+				startY : 250
+			});
+			var test = pdf.autoTableHtmlToJson(document
+					.getElementById("test_dtls"));
+			pdf.autoTable(test.columns, test.data, {
+				margin : {
+					left : 300
+				},
+				tableWidth : '40',
+				startY : 250
+			});
+			if (typeof pdf.putTotalPages === 'function') {
+				pdf.putTotalPages(totalPagesExp);
+			}
+			headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
+			var iframe = document.createElement('iframe');
+			iframe
+					.setAttribute(
+							'style',
+							'position:absolute;right:0; top:0; bottom:0; height:100%; width:650px; padding:20px;');
+			document.body.appendChild(iframe);
+			iframe.src = pdf.output('datauristring');
+		};
+		function imgToBase64(url, callback, imgVariable) {
+			if (!window.FileReader) {
+				callback(null);
+				return;
+			}
+			var xhr = new XMLHttpRequest();
+			xhr.responseType = 'blob';
+			xhr.onload = function() {
+				var reader = new FileReader();
+				reader.onloadend = function() {
+					imgVariable = reader.result.replace('text/xml',
+							'image/jpeg');
+					callback(imgVariable);
+				};
+				reader.readAsDataURL(xhr.response);
+			};
+			xhr.open('GET', url);
+			xhr.send();
+		};
+		function footer(doc, pageNumber, totalPages) {
+			var str = "Page " + pageNumber + " of " + totalPages
+			doc.setFontSize(10);
+			doc.text(str, margins.left, doc.internal.pageSize.height - 20);
+		};
+		function headerFooterFormatting(doc, totalPages) {
+			for (var i = totalPages; i >= 1; i--) {
+				doc.setPage(i);
+				footer(doc, i, totalPages);
+				doc.page++;
+			}
+		};
+	</script>

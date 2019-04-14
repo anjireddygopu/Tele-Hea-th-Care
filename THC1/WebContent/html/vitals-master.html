@@ -1,0 +1,210 @@
+<link rel="import" href="script.html">
+<script src="js/vitals.js"></script>
+
+			<div class="container-fluid">
+				<div class="row bg-title">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title"></h4>
+					</div>
+				</div>
+				<div class="white-box">
+					<div class="clearfix"></div>
+					<div class="row" id="editdiv">
+						<form class="form-horizontal">
+							<div class="form-body">
+								<h3 class="box-title">Patient Vitals</h3>
+								<hr class="m-t-0 m-b-20">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">Weight</label>
+											<div class="col-md-4">
+												<input type="number" class="form-control"
+													placeholder="Your Weight" id="weight1">
+											</div>
+											<div class="col-md-4">
+												<select name="Dropdown" class="form-control"
+													id="weight_unit1">
+													<option value="select">select</option>
+													<option value="KG">KG</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="form-group">
+											<label class="control-label col-md-2">Height</label>
+											<div class="col-md-3">
+												<input type="number" class="form-control"
+													placeholder="Your Height" id="height1">
+											</div>
+											<div class="col-md-2">
+												<select name="Dropdown" class="form-control"
+													id="height1_unit1">
+													<option value="select">select</option>
+													<option value="Feet">Feet</option>
+												</select>
+											</div>
+											<div class="col-md-3">
+												<input type="number" class="form-control"
+													placeholder="Your Height" id="height21">
+											</div>
+											<div class="col-md-2">
+												<select name="Dropdown" class="form-control"
+													id="height2_unit1">
+													<option value="select">select</option>
+													<option value="Inches">Inches</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">BMI</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control"
+													placeholder="Enter Your BMI" name="bmi" id="bmi1" value="">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4"> BP Systolic</label>
+											<div class="col-md-8">
+												<input type="number" class="form-control"
+													placeholder="mm/hg" id="bp_systolic1">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">BP Diastolic</label>
+											<div class="col-md-8">
+												<input type="number" class="form-control"
+													placeholder="mm/hg" id="bp_diastolic1">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">Temperature</label>
+											<div class="col-md-8">
+												<input type="number" class="form-control"
+													placeholder="Enter your Temperature" id="temperature1">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">Pulse Rate</label>
+											<div class="col-md-8">
+												<input type="number" class="form-control"
+													placeholder="Enter your Pulse Rate" id="pulse_rate1">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">Pulse Pattern</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control"
+													placeholder="Enter your Pulse Pattern" id="pulse_pattern1">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-4">Pulse Volume</label>
+											<div class="col-md-8">
+												<input type="number" class="form-control"
+													placeholder="Enter your Pulse Volume" id="pulse_volume1">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label class="control-label col-md-2">Notes</label>
+											<div class="col-md-10">
+												<textarea rows="2" class="form-control" id="notes1"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row"></div>
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="row">
+												<div class="col-md-offset-3 col-md-9">
+													<button type="button" class="btn btn-primary btn-rounded"
+														id="Submitfunction" onClick="myfunction()">
+														<i class="fa fa-check"></i>Submit
+													</button>
+													<button type="button" class="btn btn-primary btn-rounded"
+														id="Updatefunction" onClick="Update()">
+														<i class="fa fa-check"></i> Update
+													</button>
+													<button type="button" class="btn btn-default btn-rounded"
+														onclick="cancel()">
+														<i class="fa fa-times"></i> Cancel
+													</button>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6"></div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	
+		
+	<script>
+		function cancel() {
+			display();
+		}
+		$(document).ready(
+				function() {
+					edit();
+					$("#bmi1").blur(
+							function() {
+								var Weight = Number($("#weight1").val());
+								var height = Number($("#height1").val());
+								var inch = Number(($("#height21").val()));
+								if ((Weight == "" && height == "")
+										|| (Weight == "" || height == "")) {
+									$("#bmi1").val(0);
+								} else {
+									var height1 = ((height) * 12) + inch;
+									var height2 = Math.pow(height1, 2);
+									var bmi = (Weight) / height2;
+									var bmi1 = bmi.toFixed(3);
+									$("#bmi1").val(bmi1);
+								}
+							});
+
+					$("#bmi1").blur(
+							function() {
+								var Weight = Number($("#weight1").val());
+								var height = Number($("#height1").val());
+								var inch = Number(($("#height21").val()));
+								if ((Weight == "" && height == "")
+										|| (Weight == "" || height == "")) {
+									$("#bmi1").val(0);
+								} else {
+
+									var height1 = ((height) * 12) + inch;
+									var height2 = Math.pow(height1, 2);
+									var bmi = (Weight) / height2;
+									var bmi1 = bmi.toFixed(3);
+									$("#bmi1").val(bmi1);
+								}
+							});
+				});
+	</script>

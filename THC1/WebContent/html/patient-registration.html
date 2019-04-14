@@ -1,0 +1,1053 @@
+<link rel="import"href="script.html">
+<script src="js/masterdata.js"></script>
+<script src="js/patient.js"></script>
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Patient Registration</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <button id="badd" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light" onclick="add()">New Patient</button>
+                    </div>
+                </div>
+                <!--row -->
+                <div class="row" id="list">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title m-b-0"></h3>
+                            <div class="table-responsive">
+                                <table id="example" class="display nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Record No</th>
+                                            <th>Name</th>
+                                            <th>Date of Birth</th>
+                                            <th>Mobile No</th>
+                                            <th>Contact Name</th>
+                                             <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+					 <div class="row" id="add">
+                	<div class="col-sm-12">
+                		<div class="white-box">				
+                		<form  id="patient-reg" action="#" class="form-horizontal">
+                                        <div class="form-body">
+                                            <h3 class="box-title">Person Details</h3>
+                                            <hr class="m-t-0 m-b-20">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group hidden">
+                                                        <label class="control-label col-md-4 ">Record No.</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control"  id="recordno" name="recordno" placeholder="Ranjan050182"> <!--<span class="help-block"> This is inline help </span>--> </div>
+                                                    </div>
+                                                </div>	
+                                                </div>
+                                                 <div class="row">											
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">First Name</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter Your First Name">  </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Last Name</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="lname"  name="lname" placeholder="Enter Your Last Name"> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Gender</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" id="gender" name="gender">
+                                                                <option value="">Select</option>
+                                                                <option value="1">Male</option>
+                                                                <option value="2">Female</option>
+                                                            </select> </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-->
+                                            <div class="row">
+                                                
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">DOB</label>
+                                                        <div class="col-md-8">
+                                                            <input type="date" class="form-control" id="dob" name="dob" placeholder="dd/mm/yyyy"> </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Age</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="age" name="age" placeholder="Enter age"> </div>
+                                                    </div>
+                                                </div>	
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Marital Status</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="mstatus" name="mstatus">
+                                                                 <option value="">Select</option>
+                                                                <option value=" 1">Married</option>
+                                                                <option value=" 2">Unmarried</option>
+                                                                <option value=" 3">Divorced </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>											
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-->
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Blood Group</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="bgroup" name="bgroup">
+                                                                 <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Language</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="language" name="language">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                 <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Aadhar No</label>
+                                                        <div class="col-md-8">
+														<input type="text" class="form-control" placeholder="Enter aadharcard number" id="aadharno" name="aadharno"> </div>
+                                                        </div>
+                                                    </div>												
+                                            </div>
+											<div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Occupation</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="occupation" name="occupation">
+                                                                 <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Religion</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="religion" name="religion">
+                                                                <option value="">Select</option>
+                                                                <option value="1">Hindu</option>
+                                                                <option value=" 2">Muslim</option>
+                                                                <option value=" 3">Christian</option>
+                                                                <option value=" 4">Sikh</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Nationality</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="nationality" name="nationality">
+                                                                 <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+											</div>
+											<div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Income Group</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="igroup" name="igroup">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+											</div>
+                                            <h3 class="box-title">Contact Information</h3>
+                                            <hr class="m-t-0 m-b-20">
+                                            <!--/row-->
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Address Line 1</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="hmno" name="hmno" placeholder="House No"> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Address Line 2</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="sname" name="sname"placeholder="Street/Colony Name"> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Address Line 3</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="location" name="location" placeholder="Near By Location" > </div>
+                                                    </div>
+                                                </div>												
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Email</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="email" name="email" placeholder="Enter emailid"> </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Mobile No</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter mobile no"> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Office No</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="hphno" name="hphno" placeholder="Enter office no"> </div>
+                                                            
+                                                    </div>
+                                                </div>												
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-->
+                                            <div class="row">
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Country</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" id="country" name="country">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">State</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" id="state" name="state">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">District</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" id="district" name="district">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>													
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-->
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Town</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" id="city" name="city">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>											
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">ZIP Code</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="pcode" name="pcode" placeholder="Enter ZIPCode"> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+											<h3 class="box-title">Emergency Contact Information</h3>
+                                            <hr class="m-t-0 m-b-20">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Name</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="emname" name="emname" placeholder=" Enter Name "> </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Relation Type</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control"  id="relation" name="relation" placeholder="Mother/Father/Husband"> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Office No</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="phno1" name="phno1" placeholder="Enter office no"> </div>
+                                                    </div>
+                                                </div>												
+                                                <!--/span-->
+                                            </div>
+											<div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Mobile No</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="phno2" name="phno2" placeholder="Enter mobile no"> </div>
+                                                    </div>
+                                                </div>												
+                                                <!--/span-->
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-md-offset-3 col-md-9">
+                                                            <button type="submit" class="btn btn-primary btn-rounded" id="save"><i class="fa fa-check"></i> Submit</button>
+                                                            <button type="button" class="btn btn-default btn-rounded"  onclick="display()"><i class="fa fa-times" ></i> Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6"> </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                </div>
+                                </div>
+                                </div>
+                                 <div class="row" id="edit">
+                	<div class="col-sm-12">
+                		<div class="white-box">				
+                		<form  id="patient-edit" action="#" class="form-horizontal">
+                                        <div class="form-body">
+                                            <h3 class="box-title">Person Details</h3>
+                                            <hr class="m-t-0 m-b-20">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Record No.</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control"  id="recordno1" name="recordno1" placeholder="Ranjan050182" readonly> <!--<span class="help-block"> This is inline help </span>--> </div>
+                                                    </div>
+                                                </div>												
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">First Name</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="fname1" name="fname1" placeholder="Enter Your First Name">  </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Last Name</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="lname1"  name="lname1" placeholder="Enter Your Last Name"> </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-->
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Gender</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" id="gender1" name="gender1">
+                                                                <option value="">Select</option>
+                                                                <option value="1">Male</option>
+                                                                <option value="2">Female</option>
+                                                            </select> </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">DOB</label>
+                                                        <div class="col-md-8">
+                                                            <input type="date" class="form-control" id="dob1" name="dob1" placeholder="dd/mm/yyyy"> </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Age</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="age1" name="age1" placeholder="21"> </div>
+                                                    </div>
+                                                </div>												
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-->
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Marital Status</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="mstatus1" name="mstatus1">
+                                                                 <option value="">Select</option>
+                                                                <option value=" 1">Married</option>
+                                                                <option value=" 2">Unmarried</option>
+                                                                <option value=" 3">Divorced </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Blood Group</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="bgroup1" name="bgroup1">
+                                                                 <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Language</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="language1" name="language1">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>												
+                                            </div>
+											<div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Aadhar No</label>
+                                                        <div class="col-md-8">
+														<input type="text" class="form-control" placeholder="XXXX XXXX XXXX" id="aadharno1" name="aadharno1"> </div>
+                                                        </div>
+                                                    </div>
+                                                
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Occupation</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="occupation1" name="occupation1">
+                                                                 <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Religion</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="religion1" name="religion1">
+                                                                <option value="">Select</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+											</div>
+											<div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Nationality</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="nationality1" name="nationality1">
+                                                                 <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Income Group</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1" id="igroup1" name="igroup1">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+											</div>
+                                            <h3 class="box-title">Contact Information</h3>
+                                            <hr class="m-t-0 m-b-20">
+                                            <!--/row-->
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Address Line 1</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="hmno1" name="hmno1" placeholder="House No1"> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Address Line 2</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="sname1" name="sname1"placeholder="Street/Colony Name"> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Address Line 3</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="location1" name="location1" placeholder="Near By" > </div>
+                                                    </div>
+                                                </div>												
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Email Id</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="email1" name="email1" placeholder="name@telehealthcare.com"> </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Mobile No</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="mobile1" name="mobile1" placeholder="98798 79879"> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Phone No</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="hphno1" name="hphno1" placeholder="040 2720 2720"> </div>
+                                                            
+                                                    </div>
+                                                </div>												
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-->
+                                            <div class="row">
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Country</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" id="country1" name="country1">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">State</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" id="state1" name="state1">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">District</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" id="district1" name="district1">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>													
+                                                <!--/span-->
+                                            </div>
+                                            <!--/row-->
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Town</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" id="city1" name="city1">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>											
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Zipcode</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="pcode1" name="pcode1" placeholder="400 001"> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+											<h3 class="box-title">Emergency Contact Information</h3>
+                                            <hr class="m-t-0 m-b-20">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Name</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="emname1" name="emname1" placeholder="Name here"> </div>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Relation Type</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control"  id="relation1" name="relation1" placeholder="Mother/Father/Husband"> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Phone No</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="phno11" name="phno11" placeholder="040 2720 2720"> </div>
+                                                    </div>
+                                                </div>												
+                                                <!--/span-->
+                                            </div>
+											<div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">Mobile No</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="phno21" name="phno21" placeholder="78978 97897"> </div>
+                                                    </div>
+                                                </div>												
+                                                <!--/span-->
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-md-offset-3 col-md-9">
+                                                            <button type="submit" class="btn btn-primary btn-rounded" id="update"><i class="fa fa-check"></i>Update</button>
+                                                            <button type="button" class="btn btn-default btn-rounded"  onclick="display()"><i class="fa fa-times"></i> Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6"> </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                </div>
+                                </div>
+                                </div>
+                              </div>
+
+               
+    <script>
+    $(document).ready(function() {
+    
+        	$("#list").show();
+        	$("#add").hide();
+        	$("#edit").hide();
+           
+              $('#example tbody').on('click', 'tr.group', function() {
+                    var currentOrder = table.order()[0];
+                    if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                        table.order([2, 'desc']).draw();
+                    } else {
+                        table.order([2, 'asc']).draw();
+                    }
+                });
+              ShowLists();
+    });
+    $.validator.addMethod(
+	        "alphanumeric",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter a valid number"
+	);
+	$.validator.addMethod(
+	        "alphabetsonly",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter a valid  name"
+	);
+	$.validator.addMethod(
+	        "numbersonly",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter age in numeric only"
+	);
+	$.validator.addMethod(
+	        "numbers",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter a valid aadhar number"
+	);
+	$.validator.addMethod(
+	        "emailval",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter a valid email id"
+	);
+	$.validator.addMethod(
+	        "mobile",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter a valid mobile number"
+	);
+	$.validator.addMethod(
+	        "mobile1",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter a valid phone number"
+	);
+	$.validator.addMethod(
+	        "pincode",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter 6 digits of pincode"
+	);
+	  jQuery.validator.addMethod("noSpace", function(value, element) { 
+		  	return value.indexOf(" ") < 0 && value != ""; 
+			}, "No space please and don't leave it empty");
+	$("#add").ready(function(){
+	$("#patient-reg").validate({
+	 rules:{
+		 recordno:{
+			        required:true,
+			        alphanumeric:/^[A-Za-z0-9 ]+$/
+			       },
+	     fname:{
+	    	     required:true,
+	    	     noSpace:false,
+	    	     alphabetsonly:/^[a-zA-z ]+$/
+	           },
+	     lname:{
+    	     required:true,
+    	     noSpace:false,
+    	     alphabetsonly:/^[a-zA-z ]+$/
+              },
+          gender:"required",
+          dob:"required",
+          age:{ required:true,
+        	    numbersonly:/^[0-9]+$/
+        	   },
+          mstatus:"required",
+          bgroup:"required",
+          language:"required",
+          aadharno:{
+        	         required:true,
+        	         numbers:/^([0-9]{4} [0-9]{4} [0-9]{4})+$/
+        	        	
+          },
+          occupation:"required",
+          religion:"required",
+          nationality:"required",
+          igroup:"required",
+          hmno:{
+		        required:true,
+		        alphanumeric:/^[A-Za-z0-9-/\_#$.,*&: ]+$/
+		       },
+		   sname:{
+	    	     required:true,
+	    	     noSpace:false,
+	    	     alphabetsonly:/^[a-zA-z ]+$/
+	           },
+	       location:{
+	    	     required:true,
+	    	     noSpace:false,
+	    	     alphabetsonly:/^[a-zA-z ]+$/
+	           },
+	       email:{required:true,
+					  email:true,
+				emailval:/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/},  
+	    	  
+          mobile:{ required:true,
+      	    mobile:/^([0-9]{10})+$/
+   	       },
+   	       hphno:{ required:true,
+      	    mobile1:/^([0-9]{11})+$/
+   	       },
+   	       country:"required",
+   	       state:"required",
+   	       district:"required",
+   	       city:"required",
+   	       pcode:{
+   	    	   required:true,
+   	    	   pincode:/^([0-9]{6})+$/
+   	       },
+   	       emname:{
+	    	     required:true,
+	    	     noSpace:false,
+	    	     alphabetsonly:/^[a-zA-z ]+$/
+	           },
+	       relation:{
+	    	     required:true,
+	    	     noSpace:false,
+	    	     alphabetsonly:/^[a-zA-z ]+$/
+	           },
+	           phno1:{ required:true,
+	         	    mobile1:/^([0-9]{11})+$/
+	   	       },
+	   	       phno2:{ required:true,
+	         	    mobile:/^([0-9]{10})+$/
+	   	       },
+	 },
+		messages:{
+			recordno:"please enter recordno",
+			fname:"please enter first name",
+			lname:"please enter  last name",
+			gender:"please select gender",
+			dob:"Please select date of birth",
+			age:"please enter  age",
+			mstatus:"please select marital status",
+			bgroup:"please select  blood group",
+			language:"please select  language",
+			aadharno:"please enter  aadhar number",
+			occupation:"please select occupation",
+			religion:"please select  religion",
+			nationality:"please select r nationality",
+			igroup:"please select income group",
+			hmno:"please enter  house no",
+			sname:"please enter  street address",
+			location:"please enter nearby location",
+			email:"please enter email id",
+			mobile:"please enter mobile number",
+			hphno:"please enter phone number",
+			country:"please select country",
+			state:"please select state",
+			district:"please select district",
+			city:"please select city",
+			pcode:"please enter pincode",
+			emname:"please enter emergencey name",
+			relation:"please enter relationship",
+			phno1:"please enter phone number",
+			phno2:"please enter mobile number",	
+		},
+		 submitHandler: function() {
+	           addPatient();
+	        },
+		errorElement: "em",
+		errorPlacement: function ( error, element ) {
+			
+			error.addClass( "help-block" );
+
+			
+			element.parents( ".col-md-4" ).addClass( "has-feedback" );
+
+			if ( element.prop( "type" ) === "checkbox" ) {
+				error.insertAfter( element.parent("div" ) );
+			} else {
+				error.insertAfter( element );
+			}
+
+			
+		
+		},
+		
+		highlight: function ( element, errorClass, validClass ) {
+			$( element ).parents( ".col-md-4" ).addClass( "has-error" ).removeClass( "has-success" );
+			
+		},
+		unhighlight: function ( element, errorClass, validClass ) {
+			$( element ).parents( ".col-md-4" ).removeClass( "has-error" );
+			
+		},
+		
+	});
+	});
+	$("#edit").ready(function(){
+		$("#patient-edit").validate({
+		 rules:{
+			 recordno1:{
+				        required:true,
+				        alphanumeric:/^[A-Za-z0-9]+$/
+				       },
+		     fname1:{
+		    	     required:true,
+		    	     noSpace:false,
+		    	     alphabetsonly:/^[a-zA-z]+$/
+		           },
+		     lname1:{
+	    	     required:true,
+	    	     noSpace:false,
+	    	     alphabetsonly:/^[a-zA-z]+$/
+	              },
+	          gender1:"required",
+	          dob1:"required",
+	          age1:{ required:true,
+	        	    numbersonly:/^[0-9]+$/
+	        	   },
+	          mstatus1:"required",
+	          bgroup1:"required",
+	          language1:"required",
+	          aadharno1:{
+	        	         required:true,
+	        	         numbers:/^([0-9]{4} [0-9]{4} [0-9]{4})+$/
+	        	        	// /^\d{4}\s\d{4}\s\d{4}$/g
+	          },
+	          occupation1:"required",
+	          religion1:"required",
+	          nationality1:"required",
+	          igroup1:"required",
+	          hmno1:{
+			        required:true,
+			        noSpace:false,
+			        alphanumeric:/^[A-Za-z0-9]+$/
+			       },
+			   sname1:{
+		    	     required:true,
+		    	     noSpace:false,
+		    	     alphabetsonly:/^[a-zA-z]+$/
+		           },
+		       location1:{
+		    	     required:true,
+		    	     alphabetsonly:/^[a-zA-z]+$/
+		           },
+		       email1:{required:true,
+						  email:true,
+					emailval:/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/},  
+		    	  
+	          mobile1:{ required:true,
+	      	    mobile:/^([0-9]{10})+$/
+	   	       },
+	   	       hphno1:{ required:true,
+	      	    mobile1:/^([0-9]{11})+$/
+	   	       },
+	   	       country1:"required",
+	   	       state1:"required",
+	   	       district1:"required",
+	   	       city1:"required",
+	   	       pcode1:{
+	   	    	   required:true,
+	   	    	   pincode:/^([0-9]{6})+$/
+	   	       },
+	   	       emname1:{
+		    	     required:true,
+		    	     noSpace:false,
+		    	     alphabetsonly:/^[a-zA-z]+$/
+		           },
+		       relation1:{
+		    	     required:true,
+		    	     noSpace:false,
+		    	     alphabetsonly:/^[a-zA-z]+$/
+		           },
+		           phno11:{ required:true,
+		         	    mobile1:/^([0-9]{11})+$/
+		   	       },
+		   	       phno21:{ required:true,
+		         	    mobile:/^([0-9]{10})+$/
+		   	       },
+		 },
+			messages:{
+				recordno1:"please enter recordno",
+				fname1:"please enter first name",
+				lname1:"please enter  last name",
+				gender1:"please select gender",
+				dob1:"Please select date of birth",
+				age1:"please enter  age",
+				mstatus1:"please select marital status",
+				bgroup1:"please select  blood group",
+				language1:"please select  language",
+				aadharno1:"please enter  aadhar number",
+				occupation1:"please select occupation",
+				religion1:"please select  religion",
+				nationality1:"please select r nationality",
+				igroup1:"please select income group",
+				hmno1:"please enter  house no",
+				sname1:"please enter  street address",
+				location1:"please enter nearby location",
+				email1:"please enter email id",
+				mobile1:"please enter mobile number",
+				hphno1:"please enter phone number",
+				country1:"please select country",
+				state1:"please select state",
+				district1:"please select district",
+				city1:"please select city",
+				pcode1:"please enter pincode",
+				emname1:"please enter emergencey name",
+				relation1:"please enter relationship",
+				phno11:"please enter phone number",
+				phno21:"please enter mobile number",	
+			},
+			 submitHandler: function() {
+		           editPatient();
+		        },
+			errorElement: "em",
+			errorPlacement: function ( error, element ) {
+				// Add the `help-block` class to the error element
+				error.addClass( "help-block" );
+
+				// Add `has-feedback` class to the parent div.form-group
+				// in order to add icons to inputs
+				element.parents( ".col-md-4" ).addClass( "has-feedback" );
+
+				if ( element.prop( "type" ) === "checkbox" ) {
+					error.insertAfter( element.parent("div" ) );
+				} else {
+					error.insertAfter( element );
+				}
+
+				// Add the span element, if doesn't exists, and apply the icon classes to it.
+			
+			},
+			
+			highlight: function ( element, errorClass, validClass ) {
+				$( element ).parents( ".col-md-4" ).addClass( "has-error" ).removeClass( "has-success" );
+				//$( element ).parents( ".col-md-5" ).addClass( "has-error" ).removeClass( "has-success" );
+				//$( element ).parents( ".col-md-2" ).addClass( "has-error" ).removeClass( "has-success" );
+			},
+			unhighlight: function ( element, errorClass, validClass ) {
+				$( element ).parents( ".col-md-4" ).removeClass( "has-error" );
+				//$( element ).parents( ".col-md-5" ).removeClass( "has-error" );
+				//$( element ).parents( ".col-md-2" ).removeClass( "has-error" );
+			},
+			
+		});
+	});
+	
+          </script>	

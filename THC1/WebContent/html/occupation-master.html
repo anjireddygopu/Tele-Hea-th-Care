@@ -1,0 +1,106 @@
+<link rel="import" href="script.html">
+<script src="js/occupationdb.js"></script>
+<div class="container-fluid">
+	<div class="row bg-title">
+		<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+			<h4 class="page-title">Occupation</h4>
+		</div>
+		<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+			<a href="javascript:add()" id="add"
+				class="btn btn-info pull-right m-l-10 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">New</a>
+		</div>
+	</div>
+	<!--row -->
+	<div class="row" id="list">
+		<div class="col-sm-12">
+			<div class="white-box">
+				<h3 class="box-title m-b-0"></h3>
+				<div class="table-responsive">
+					<table id="occupation_list" class="display nowrap" cellspacing="0"
+						width="100%">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Active</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--row -->
+	<!--row -->
+	<form id="registration">
+		<div class="row" id="register">
+			<div class="col-sm-12">
+				<div class="white-box">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-4">Name</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="occupationname"
+										name="occupationname" placeholder="Occupation Name">
+									<!--<span class="help-block"> This is inline help </span>-->
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="checkbox checkbox-success checkbox-circle">
+								<input id="checkbox" type="checkbox" name="check" checked>
+								<label for="checkbox">Active</label>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<button class="fcbtn btn btn-info btn-outline btn-rounded btn-1f"
+								type="submit" id="save">save</button>
+							<button
+								class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f"
+								type="reset" onclick="cancel()">Cancel</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</form>
+	<!--/row -->
+	<!--/row -->
+	<form id="editform">
+		<div class="row" id="edit">
+			<div class="col-sm-12">
+				<div class="white-box">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-4">Name</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="editname"
+										name="editname" placeholder="Occupation Name">
+									<!--<span class="help-block"> This is inline help </span>-->
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="checkbox checkbox-success checkbox-circle">
+								<input id="checkbox1" type="checkbox" name="check"> <label
+									for="checkbox1"> Active</label>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<button class="fcbtn btn btn-info btn-outline btn-rounded btn-1f"
+								type="submit" id="update">Update</button>
+							<button
+								class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f"
+								type="reset" onclick="cancel()">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<!--/row -->
+</div>

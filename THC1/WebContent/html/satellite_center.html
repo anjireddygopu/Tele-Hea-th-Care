@@ -1,0 +1,918 @@
+<script src="js/masterdata.js"></script>
+<script src="js/satellite_center.js"></script>
+ <link rel="import" href="script.html">
+			<div class="container-fluid">
+				<div class="row bg-title">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">Satellite Facility</h4>
+					</div>
+					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+						<button id="badd"
+							class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"
+							onclick="add()">New Satellite</button>
+					</div>
+				</div>
+				<!--row -->
+					<div class="row" id="list">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<h3 class="box-title m-b-0"></h3>
+							<div class="table-responsive">
+								<table id="example" class="display nowrap">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Name</th>
+											<th>Contact Name</th>
+											<th>Contact Nor</th>
+											<th>Email ID</th>
+											<th>Status</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="add">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<form id="satellite-add" action="#" class="form-horizontal">
+								<div class="form-body">
+									<h3 class="box-title">Facility Center Details</h3>
+									<hr class="m-t-0 m-b-20">
+									<div class="row">
+										<div class="col-md-5">
+											<div class="form-group">
+												<label class="control-label col-md-5">Facility
+													Id</label>
+												<div class="col-md-7">
+													<input type="text" class="form-control" id="id" name="id"
+														placeholder="Enter Facility Id">
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+										<div class="col-md-5">
+											<div class="form-group">
+												<label class="control-label col-md-5">Facility
+													Name</label>
+												<div class="col-md-7">
+													<input type="text" class="form-control" id="name"
+														name="name" placeholder="Enter Facility  Name">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="checkbox checkbox-success checkbox-circle">
+												<input id="check1" type="checkbox" value="1" name="check1" checked>
+												<label for="check1"> Active</label>
+											</div>
+										</div>
+									</div>
+									<!--/row-->
+									<h3 class="box-title">Address Information</h3>
+									<hr class="m-t-0 m-b-20">
+									<!--/row-->
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Address Line 1</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="hmno"
+														name="hmno" placeholder="House No">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Address Line 2</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="sname"
+														name="sname" placeholder="Street/Colony Name">
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--/row-->
+									<div class="row">
+										<!--/span-->
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Country</label>
+												<div class="col-md-8">
+													<select class="form-control" id="country" name="country">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">State</label>
+												<div class="col-md-8">
+													<select class="form-control" id="state" name="state">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">District</label>
+												<div class="col-md-8">
+													<select class="form-control" id="district" name="district">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Town</label>
+												<div class="col-md-8">
+													<select class="form-control" id="city" name="city">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Zipcode</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="pcode"
+														name="pcode" placeholder="Enter ZIPCode">
+												</div>
+											</div>
+											<!--/span-->
+										</div>
+										<!--/row-->
+									</div>
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Office Contact No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="phno"
+														name="phno" placeholder="Enter Phone Number">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group ">
+												<label class="control-label col-md-4 ">Fax </label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="fno" name="fno"
+														placeholder="Enter Fax Number">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Longitude </label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="longi"
+														name="longi" placeholder="Enter Longitude">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Latitude</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="lati"
+														name="lati" placeholder="Enter Latitude">
+												</div>
+											</div>
+										</div>
+									</div>
+									<h3 class="box-title">Contact Information</h3>
+									<hr class="m-t-0 m-b-20">
+									<!--/row-->
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Contact Person
+													Name</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="cname"
+														name="cname" placeholder="Enter Person Name">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Email Id</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="email"
+														name="email" placeholder="example@gmail.com">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Mobile No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="mobile"
+														name="mobile" placeholder="Enter Mobile Number">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group ">
+												<label class="control-label col-md-4 ">Password</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="password" name="password"
+														placeholder="Enter password">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group ">
+												<label class="control-label col-md-4 ">Confirm Password </label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="cpassword" name="cpassword"
+														placeholder="Enter Confirm Password">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-actions">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="row">
+													<div class="col-md-offset-3 col-md-9">
+														<button type="submit" class="btn btn-primary btn-rounded">
+															<i class="fa fa-check"></i> Submit
+														</button>
+														<button type="button" class="btn btn-default btn-rounded"
+															onclick="cancel()">
+															<i class="fa fa-times"></i> Cancel
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="edit">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<form id="satellite-edit" action="#" class="form-horizontal">
+								<div class="form-body">
+									<h3 class="box-title">Facility Center Details</h3>
+									<hr class="m-t-0 m-b-20">
+									<div class="row">
+										<div class="col-md-5">
+											<div class="form-group">
+												<label class="control-label col-md-5">Facility
+													Id</label>
+												<div class="col-md-7">
+													<input type="text" class="form-control" id="id1" name="id1"
+														placeholder="Ranjan050182" readonly>
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+										<div class="col-md-5">
+											<div class="form-group">
+												<label class="control-label col-md-5">Facility
+													 Name</label>
+												<div class="col-md-7">
+													<input type="text" class="form-control" id="name1"
+														name="name1" placeholder="Enter Facility Center Name">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="checkbox checkbox-success checkbox-circle">
+												<input id="check11" type="checkbox" value="1" name="check11">
+												<label for="check1"> Active</label>
+											</div>
+										</div>
+									</div>
+									<!--/row-->
+									<div class="row">
+
+										<!--/row-->
+									</div>
+									<h3 class="box-title">Address Information</h3>
+									<hr class="m-t-0 m-b-20">
+									<!--/row-->
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Address Line 1</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="hmno1"
+														name="hmno1" placeholder="House No">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Address Line 2</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="sname1"
+														name="sname1" placeholder="Street/Colony Name">
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--/row-->
+									<div class="row">
+										<!--/span-->
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Country</label>
+												<div class="col-md-8">
+													<select class="form-control" id="country1" name="country1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">State</label>
+												<div class="col-md-8">
+													<select class="form-control" id="state1" name="state1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">District</label>
+												<div class="col-md-8">
+													<select class="form-control" id="district1"
+														name="district1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Town</label>
+												<div class="col-md-8">
+													<select class="form-control" id="city1" name="city1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Zipcode</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="pcode1"
+														name="pcode1" placeholder="400 001">
+												</div>
+											</div>
+											<!--/span-->
+										</div>
+										<!--/row-->
+									</div>
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Office Contact No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="phno1"
+														name="phno1" placeholder="Enter Phone Number">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group ">
+												<label class="control-label col-md-4 ">Fax </label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="fno1"
+														name="fno1" placeholder="Enter Fax Number">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Longitude </label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="longi1"
+														name="longi1" placeholder="400 001">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Latitude</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="lati1"
+														name="lati1" placeholder="400 001">
+												</div>
+											</div>
+										</div>
+									</div>
+									<h3 class="box-title">Contact Information</h3>
+									<hr class="m-t-0 m-b-20">
+									<!--/row-->
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Contact 
+													Name</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="cname1"
+														name="cname1" placeholder="Enter Person Name">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Email Id</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="email1"
+														name="email1" placeholder="example@gmail.com">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Mobile No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="mobile1"
+														name="mobile1" placeholder="Enter Mobile Number">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group ">
+												<label class="control-label col-md-4 ">Password</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="password1"
+														name="password1" placeholder="Enter password">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group ">
+												<label class="control-label col-md-4 ">Confirm Password</label>
+												<div class="col-md-8">
+													<input type="password" class="form-control" id="cpassword1"
+														name="cpassword1" placeholder="Enter password">
+												</div>
+											</div>
+										</div>
+										</div>
+									<div class="form-actions">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="row">
+													<div class="col-md-offset-3 col-md-9">
+														<button type="submit" class="btn btn-primary btn-rounded">
+															<i class="fa fa-check"></i> Update
+														</button>
+														<button type="button" class="btn btn-default btn-rounded"
+															onclick="cancel()">
+															<i class="fa fa-times"></i> Cancel
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+	<script>
+		$(document).ready(function() {
+			$("#list").show();
+			$("#add").hide();
+			$("#edit").hide();
+
+			// Order by the grouping
+			$('#example tbody').on('click', 'tr.group', function() {
+				var currentOrder = table.order()[0];
+				if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+					table.order([ 2, 'desc' ]).draw();
+				} else {
+					table.order([ 2, 'asc' ]).draw();
+				}
+			});
+
+			ShowLists();
+
+		});
+
+		$.validator.setDefaults({
+			debug : true,
+		});
+
+		$.validator.addMethod("regex6", function(value, element, regexp) {
+			var re = new RegExp(regexp);
+			return this.optional(element) || re.test(value);
+		}, "please enter numbers only");
+		$.validator.addMethod("regex1", function(value, element, regexp) {
+			var re = new RegExp(regexp);
+			return this.optional(element) || re.test(value);
+		}, "Please enter correct format of email address");
+
+		$.validator.addMethod("regex2", function(value, element, regexp) {
+			var re = new RegExp(regexp);
+			return this.optional(element) || re.test(value);
+		}, "Please enter a valid mobile number");
+		$.validator.addMethod("regex3", function(value, element, regexp) {
+			var re = new RegExp(regexp);
+			return this.optional(element) || re.test(value);
+		}, "Please enter a valid  phone number");
+		$.validator.addMethod("regex4", function(value, element, regexp) {
+			var re = new RegExp(regexp);
+			return this.optional(element) || re.test(value);
+		}, "Please enter a valid  fax number");
+		$.validator.addMethod("regex5", function(value, element, regexp) {
+			var re = new RegExp(regexp);
+			return this.optional(element) || re.test(value);
+		}, "password should contain atleast one number and one special character and 8 characters length ");
+		$("#add")
+				.ready(
+						function() {
+							$("#satellite-add")
+									.validate(
+											{
+												rules : {
+													id : "required",
+													name : {
+														required : true,
+
+													},
+													check1 : "required",
+													hmno : {
+														required : true,
+													},
+													sname : {
+														required : true,
+
+													},
+													country : "required",
+													state : "required",
+													district : "required",
+													city : "required",
+													pcode : {
+														required : true,
+														regex6 : /^[0-9]+$/
+													},
+													longi : "required",
+													lati : "required",
+													cname : {
+														required : true,
+
+													},
+													email : {
+														required : true,
+														email : true,
+														regex1 : /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/
+													},
+													mobile : {
+														required : true,
+														regex2 : /^([0-9]{10})+$/
+													},
+													phno : {
+														required : true,
+														regex3 : /^([0-9]{11})+$/
+													},
+													fno : {
+														required : true,
+														regex4 : /^[a-zA-Z0-9]+$/
+													},
+													password:{
+														required : true,
+														regex5 : /^[a-zA-Z0-9!@#$%^&*]{8,30}$/
+													},
+													cpassword:{
+														required : true,
+														equalTo: "#password"
+													}
+												},
+
+												messages : {
+													id : "Please enter your facility center id",
+													name : "Please enter your facility center name",
+													check1 : "please select one check box",
+													hmno : {
+														required : "Please enter your home no",
+													},
+													sname : "Please enter  your address",
+													country : "please select country ",
+													state : "please select state ",
+													district : "please select district",
+													city : "please select city",
+													pcode : "please enter your zipcode",
+													longi : "please enter longitude value",
+													lati : "please enterlatitude value",
+													cname : "Please enter  your contact person name",
+													email1 : {
+														required : "Please enter an email address",
+														email : "Please enter a valid email address",
+
+													},
+													mobile : {
+														required : "Please enter a mobile number",
+
+													},
+													phno : {
+														required : "Please enter a phone  number",
+
+													},
+													fno : {
+														required : "Please enter a fax number",
+
+													},
+													password:{
+														required : "Please enter password",
+													},
+													cpassword:{
+														required : "Please enter confirm password",
+													}
+
+												},
+
+												submitHandler : function() {
+													// form.submit();
+													addFacilities();
+												},
+												errorElement : "em",
+												errorPlacement : function(
+														error, element) {
+													// Add the `help-block` class to the error element
+													error
+															.addClass("help-block");
+
+													// Add `has-feedback` class to the parent div.form-group
+													// in order to add icons to inputs
+													element
+															.parents(
+																	".col-md-6")
+															.addClass(
+																	"has-feedback");
+
+													if (element.prop("type") === "checkbox") {
+														error
+																.insertAfter(element
+																		.parent("div"));
+													} else {
+														error
+																.insertAfter(element);
+													}
+
+													// Add the span element, if doesn't exists, and apply the icon classes to it.
+
+												},
+
+												highlight : function(element,
+														errorClass, validClass) {
+													$(element)
+															.parents(
+																	".col-md-6")
+															.addClass(
+																	"has-error")
+															.removeClass(
+																	"has-success");
+													$(element)
+															.parents(
+																	".col-md-5")
+															.addClass(
+																	"has-error")
+															.removeClass(
+																	"has-success");
+													$(element)
+															.parents(
+																	".col-md-2")
+															.addClass(
+																	"has-error")
+															.removeClass(
+																	"has-success");
+												},
+												unhighlight : function(element,
+														errorClass, validClass) {
+													$(element)
+															.parents(
+																	".col-md-6")
+															.removeClass(
+																	"has-error");
+													$(element)
+															.parents(
+																	".col-md-5")
+															.removeClass(
+																	"has-error");
+													$(element)
+															.parents(
+																	".col-md-2")
+															.removeClass(
+																	"has-error");
+												},
+
+											});
+						});
+		$("#edit")
+				.ready(
+						function() {
+							$("#satellite-edit")
+									.validate(
+											{
+												rules : {
+													id1 : "required",
+													name1 : {
+														required : true,
+
+													},
+													check11 : "required",
+													hmno : {
+														required : true,
+													},
+													sname1 : {
+														required : true,
+
+													},
+													pcode1 : {
+														required : true,
+														regex6 : /^[0-9]+$/
+													},
+													longi1 : "required",
+													lati1 : "required",
+													cname1 : {
+														required : true,
+
+													},
+													email1 : {
+														required : true,
+														email : true,
+														regex1 : /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/
+													},
+													mobile1 : {
+														required : true,
+														regex2 : /^([0-9]{10})+$/
+													},
+													phno1 : {
+														required : true,
+														regex3 : /^([0-9]{11})+$/
+													},
+													fno1 : {
+														required : true,
+														regex4 : /^[a-zA-Z0-9]+$/
+													},
+													password1:{
+														required : true,
+														regex5 :  /^[a-zA-Z0-9!@#$%^&*]{8,30}$/
+													},
+													cpassword1:{
+														required : true,
+														equalTo: "#password1"
+													}
+												},
+
+												messages : {
+													id1 : "Please enter your facility center id",
+													name1 : "Please enter your facility center name",
+													check11 : "please select one check box",
+													hmno1 : {
+														required : "Please enter your home no",
+													},
+													sname1 : "Please enter  your address",
+													pcode1 : "please enter your zipcode",
+													longi1 : "please enter longitude value",
+													lati1 : "please enterlatitude value",
+													cname1 : "Please enter  your contact person name",
+													email1 : {
+														required : "Please enter an email address",
+														email : "Please enter a valid email address",
+
+													},
+													mobile1 : {
+														required : "Please enter a mobile number",
+
+													},
+													phno1 : {
+														required : "Please enter a phone  number",
+
+													},
+													fno1 : {
+														required : "Please enter a fax number",
+
+													},
+													password1:{
+														required : "Please enter password",
+													},
+													cpassword1:{
+														required : "Please enter confirm password",
+													}
+
+												},
+
+												submitHandler : function() {
+													editsatellite()
+												},
+												errorElement : "em",
+												errorPlacement : function(
+														error, element) {
+													// Add the `help-block` class to the error element
+													error
+															.addClass("help-block");
+
+													// Add `has-feedback` class to the parent div.form-group
+													// in order to add icons to inputs
+													element
+															.parents(
+																	".col-md-6")
+															.addClass(
+																	"has-feedback");
+
+													if (element.prop("type") === "checkbox") {
+														error
+																.insertAfter(element
+																		.parent("div"));
+													} else {
+														error
+																.insertAfter(element);
+													}
+
+													// Add the span element, if doesn't exists, and apply the icon classes to it.
+
+												},
+
+												highlight : function(element,
+														errorClass, validClass) {
+													$(element)
+															.parents(
+																	".col-md-6")
+															.addClass(
+																	"has-error")
+															.removeClass(
+																	"has-success");
+													$(element)
+															.parents(
+																	".col-md-5")
+															.addClass(
+																	"has-error")
+															.removeClass(
+																	"has-success");
+													$(element)
+															.parents(
+																	".col-md-2")
+															.addClass(
+																	"has-error")
+															.removeClass(
+																	"has-success");
+												},
+												unhighlight : function(element,
+														errorClass, validClass) {
+													$(element)
+															.parents(
+																	".col-md-6")
+															.removeClass(
+																	"has-error");
+													$(element)
+															.parents(
+																	".col-md-5")
+															.removeClass(
+																	"has-error");
+													$(element)
+															.parents(
+																	".col-md-2")
+															.removeClass(
+																	"has-error");
+												},
+
+											});
+
+						});
+			</script>

@@ -1,0 +1,982 @@
+<link rel="import" href="script.html">
+<script src="../expertjs/masterdata.js"></script>
+<script src="../expertjs/doctor.js"></script>
+			<div class="container-fluid">
+				<div class="row bg-title">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">Doctor Registration</h4>
+					</div>
+					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+						<button id="badd"
+							class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"
+							onclick="add()">New Doctor</button>
+					</div>
+				</div>
+				<!--row -->
+				<div class="row" id="list">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<h3 class="box-title m-b-0"></h3>
+							<div class="table-responsive">
+								<table id="example" class="display nowrap">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Name</th>
+											<th>Qualification</th>
+											<th>Specialization</th>
+											<th>Contact No</th>
+											<th>Email ID</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row" id="add">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<form id="doctor-add" action="#" class="form-horizontal">
+								<div class="form-body">
+								<!-- 	<h3 class="box-title">Doctor Registration</h3>
+									<hr class="m-t-0 m-b-20"> -->
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Expert Center Name</label>
+												<div class="col-md-8">
+													<select class="form-control" id="expert" name="expert">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4"> Id</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="id" name="id"
+														placeholder="Enter Id">
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Salutation</label>
+												<div class="col-md-8">
+													<select class="form-control" id="salu" name="salu">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4"> Name</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="dname"
+														name="dname" placeholder="Enter doctor name">
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Qualification</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="qual"
+														name="qual" placeholder="Enter qualification">
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Specialization</label>
+												<div class="col-md-8">
+													<select class="form-control" id="special" name="special">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Register No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="rgno"
+														name="rgno" placeholder="Enter registration number">
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+									
+									</div>
+									<h3 class="box-title">Contact Details</h3>
+									<hr class="m-t-0 m-b-20">
+									<!--/row-->
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Address Line 1</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="hmno"
+														name="hmno" placeholder="House No">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Address Line 2</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="sname"
+														name="sname" placeholder="Street/Colony Name">
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Office 
+													No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="ocno"
+														name="ocno" placeholder="Enter office contact number">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Mobile No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="mobile"
+														name="mobile" placeholder="Enter Mobile Number">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Email Id</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="email"
+														name="email" placeholder="example@gmail.com">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Country</label>
+												<div class="col-md-8">
+													<select class="form-control" id="country" name="country">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--/row-->
+									<div class="row">
+										<!--/span-->
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">State</label>
+												<div class="col-md-8">
+													<select class="form-control" id="state" name="state">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">District</label>
+												<div class="col-md-8">
+													<select class="form-control" id="district" name="district">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Town</label>
+												<div class="col-md-8">
+													<select class="form-control" id="city" name="city">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Zipcode</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="pcode"
+														name="pcode" placeholder="Enter ZIP Code">
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--/row-->
+									<h3 class="box-title">Residence Contact Details</h3>
+									<hr class="m-t-0 m-b-20">
+									<!--/row-->
+									<div class="row">
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4"> Address Line 1</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="hmno1"
+														name="hmno1" placeholder="House No">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4"> Address Line 2</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="sname1"
+														name="sname1" placeholder="Street/Colony Name">
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4"> Office
+													No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="rcno"
+														name="rcno" placeholder="Enter Residence contact Number">
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Country</label>
+												<div class="col-md-8">
+													<select class="form-control" id="rcountry" name="rcountry">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">State</label>
+												<div class="col-md-8">
+													<select class="form-control" id="rstate" name="rstate">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">District</label>
+												<div class="col-md-8">
+													<select class="form-control" id="rdistrict"
+														name="rdistrict">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Town</label>
+												<div class="col-md-8">
+													<select class="form-control" id="rcity" name="rcity">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Zipcode</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="rpcode"
+														name="rpcode" placeholder="Enter ZIP Code">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-actions">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="row">
+													<div class="col-md-offset-3 col-md-9">
+														<button type="submit" class="btn btn-primary btn-rounded">
+															<i class="fa fa-check"></i> Submit
+														</button>
+														<button type="button" class="btn btn-default btn-rounded"
+															onclick="cancel()">
+															<i class="fa fa-times"></i> Cancel
+														</button>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="edit">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<form id="doctor-edit" action="#" class="form-horizontal">
+								<div class="form-body">
+									<!-- <h3 class="box-title">Doctor Registration</h3>
+									<hr class="m-t-0 m-b-20"> -->
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Expert Center Name</label>
+												<div class="col-md-8">
+													<select class="form-control" id="expert1" name="expert1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Id</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="id1" name="id1"
+														placeholder="Ranjan050182" readonly>
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Salutation</label>
+												<div class="col-md-8">
+													<select class="form-control" id="salu1" name="salu1">
+														<option value="">Select</option>
+														<option>Mr.</option>
+														<option>Mrs.</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Name</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="dname1"
+														name="dname1" placeholder="Enter doctor name">
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									<div class="row">
+									<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Qualification</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="qual1"
+														name="qual1" placeholder="Enter qualification">
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Specialization</label>
+												<div class="col-md-8">
+													<select class="form-control" id="special1" name="special1">
+														<option value="">Select</option>
+														<option>ENT</option>
+														<option>Radiology</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										</div>
+										<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Register No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="rgno1"
+														name="rgno1" placeholder="Enter registration number">
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<h3 class="box-title">Contact Details</h3>
+									<hr class="m-t-0 m-b-20">
+									<!--/row-->
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Address Line 1</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="hmno11"
+														name="hmno11" placeholder="House No">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Address Line 2</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="sname11"
+														name="sname11" placeholder="Street/Colony Name">
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Office
+													No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="ocno1"
+														name="ocno1" placeholder="Enter office contact number">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Mobile No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="mobile1"
+														name="mobile1" placeholder="Enter Mobile Number">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Email Id</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="email1"
+														name="email1" placeholder="example@gmail.com">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Country</label>
+												<div class="col-md-8">
+													<select class="form-control" id="country1" name="country1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--/row-->
+									<div class="row">
+										<!--/span-->
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">State</label>
+												<div class="col-md-8">
+													<select class="form-control" id="state1" name="state1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">District</label>
+												<div class="col-md-8">
+													<select class="form-control" id="district1"
+														name="district1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Town</label>
+												<div class="col-md-8">
+													<select class="form-control" id="city1" name="city1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Zipcode</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="pcode1"
+														name="pcode1" placeholder="400 001">
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--/row-->
+									<h3 class="box-title">Residence Contact Details</h3>
+									<hr class="m-t-0 m-b-20">
+									<!--/row-->
+									<div class="row">
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4"> Address Line 1</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="hmno12"
+														name="hmno12" placeholder="House No">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4"> Address Line 2</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="sname12"
+														name="sname12" placeholder="Street/Colony Name">
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4"> Office
+													No</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="rcno1"
+														name="rcno1" placeholder="Enter Residence contact Number">
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Country</label>
+												<div class="col-md-8">
+													<select class="form-control" id="rcountry1"
+														name="rcountry1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">State</label>
+												<div class="col-md-8">
+													<select class="form-control" id="rstate1" name="rstate1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">District</label>
+												<div class="col-md-8">
+													<select class="form-control" id="rdistrict1"
+														name="rdistrict1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Town</label>
+												<div class="col-md-8">
+													<select class="form-control" id="rcity1" name="rcity1">
+														<option value="">Select</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-4">Zipcode</label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" id="rpcode1"
+														name="rpcode1" placeholder="400 001">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-actions">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="row">
+													<div class="col-md-offset-3 col-md-9">
+														<button type="submit" class="btn btn-primary btn-rounded">
+															<i class="fa fa-check"></i> Update
+														</button>
+														<button type="button" class="btn btn-default btn-rounded"
+															onclick="cancel()">
+															<i class="fa fa-times"></i> Cancel
+														</button>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		
+	<script>
+    $(document).ready(function() {
+    	var token = sessionStorage.getItem("token");
+    	$("#list").show();
+    	$("#add").hide();
+    	$("#edit").hide();
+       
+          $('#example tbody').on('click', 'tr.group', function() {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+          ShowLists();
+
+         
+	});
+  
+    $.validator.setDefaults( {
+		debug:true,
+	} );
+
+      $.validator.addMethod(
+	  	        "regex4",
+	  	        function(value, element, regexp) {
+	  	            var re = new RegExp(regexp);
+	  	            return this.optional(element) || re.test(value);
+	  	        },
+	  	      "please enter numbers only"
+	  	);
+	$.validator.addMethod(
+	        "regex3",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter correct format of email address"
+	);
+	$.validator.addMethod(
+	        "regex1",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter a valid  phone number"
+	);
+	
+	$.validator.addMethod(
+	        "regex2",
+	        function(value, element, regexp) {
+	            var re = new RegExp(regexp);
+	            return this.optional(element) || re.test(value);
+	        },
+	        "Please enter a valid mobile number"
+	);
+	
+	$("#add").ready(function(){
+		
+		$( "#doctor-add" ).validate( {
+			rules: {
+				expert:"required",
+				id: "required",
+				salu:"required",
+				dname:"required",
+				qual:"required",
+				special:"required",
+				rgno:"required",
+				hmno:"required",
+				sname:"required",
+				ocno:{
+					required:true,
+					regex1:/^([0-9]{11})+$/
+					},
+				mobile:{
+					required:true,
+					regex2:/^([0-9]{10})+$/
+					},
+					email:{
+						required:true,
+						  email:true,
+						regex3:/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/},
+				country:"required",
+				state:"required",
+				district:"required",
+				city:"required",
+				pcode:{
+					required:true,
+					regex4:/^([0-9])+$/
+				},
+				hmno1:"required",
+				sname1:"required",
+				rcno:{
+					required:true,
+					regex1:/^([0-9]{11})+$/
+					},
+				rcountry:"required",
+				rstate:"required",
+				rdistrict:"required",
+				rcity:"required",	
+				rpcode:{
+					required:true,
+					regex4:/^([0-9])+$/
+				},
+				
+						
+			},
+			
+			messages: {
+				expert:"please select expert center name",
+				id: "Please enter your facility center id",
+				salu:"please select salutation",
+				dname: "Please enter your name",
+				qual:"please enter your qualification",
+				special:"please select specilaization",
+				rgno:"please enter your register number",
+				hmno: {
+					required: "Please enter your home no",
+				},
+				sname: "Please enter  your address",
+				ocno: {
+		               required: "Please enter a phone  number",
+		              
+		           },
+		        mobile: {
+		               required: "Please enter a mobile number",
+		               
+		           },
+		         email: {
+	                   required: "Please enter an email address",
+	                   email: "Please enter a valid email address",
+	                  
+	           },
+	            country:"please select country ",	
+				state:"please select state ",	
+				district:"please select district",
+				city:"please select city",
+				pcode:"please enter zip code",
+				hmno1: "Please enter your home no",
+				sname1: "Please enter  your address",
+				rcno: {
+		               required: "Please enter a phone  number",
+		              
+		           },
+		         rcountry:"please select country ",	
+			     rstate:"please select state ",
+			     rdistrict:"please select district",
+				 rcity:"please select city",
+				 rpcode:"please enter your zipcode",	
+						
+			},
+		
+				 submitHandler: function() {
+			           addDoctor();
+			        },
+				errorElement: "em",
+				errorPlacement: function ( error, element ) {
+					// Add the `help-block` class to the error element
+					error.addClass( "help-block" );
+
+					// Add `has-feedback` class to the parent div.form-group
+					// in order to add icons to inputs
+					element.parents( ".col-md-6" ).addClass( "has-feedback" );
+
+					if ( element.prop( "type" ) === "checkbox" ) {
+						error.insertAfter( element.parent("div" ) );
+					} else {
+						error.insertAfter( element );
+					}
+
+					// Add the span element, if doesn't exists, and apply the icon classes to it.
+				
+				},
+				
+				highlight: function ( element, errorClass, validClass ) {
+					$( element ).parents( ".col-md-6" ).addClass( "has-error" ).removeClass( "has-success" );
+				},
+				unhighlight: function ( element, errorClass, validClass ) {
+					$( element ).parents( ".col-md-6" ).removeClass( "has-error" );
+				},
+			
+				
+			} );
+		
+	});
+$("#edit").ready(function(){
+		
+		$( "#doctor-edit" ).validate( {
+			rules: {
+				expert1:"required",
+				id1: "required",
+				salu1:"required",
+				dname1:"required",
+				qual1:"required",
+				special1:"required",
+				rgno1:"required",
+				hmno11:"required",
+				sname11:"required",
+				ocno1:{
+					required:true,
+					regex1:/^([0-9]{11})+$/
+					},
+				mobile1:{
+					required:true,
+					regex2:/^([0-9]{10})+$/},
+					email1:{required:true,
+						  email:true,
+						regex3:/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/},
+				  hmno12:"required",
+				  sname12:"required",
+				   rcno1:{
+					required:true,
+					regex1:/^([0-9]{11})+$/
+					},	
+				pcode1:{
+					required:true,
+					regex4:/^([0-9])+$/
+				},
+				rpcode1:{
+					required:true,
+					regex4:/^([0-9])+$/
+				}
+				
+						
+			},
+			
+			messages: {
+				expert1:"please select expert center name",
+				id1: "Please enter your facility center id",
+				salu1:"please select salutation",
+				dname1: "Please enter your name",
+				qual1:"please enter your qualification",
+				special1:"please select specilaization",
+				rgno1:"please enter your register number",
+				hmno11: {
+					required: "Please enter your home no",
+				},
+				sname11: "Please enter  your address",
+				ocno1: {
+		               required: "Please enter a phone  number",
+		              
+		           },
+		        mobile1: {
+		               required: "Please enter a mobile number",
+		               
+		           },
+		         email1: {
+	                   required: "Please enter an email address",
+	                   email: "Please enter a valid email address",
+	                  
+	           },
+				
+				hmno12: {
+					required: "Please enter your home no",
+				},
+				sname12: "Please enter  your address",
+				rcno1: {
+		               required: "Please enter a phone  number",
+		              
+		           },
+
+				 pcode1:"please enter your zipcode",
+				 rpcode1:"please enter your zipcode",
+						
+			},
+		
+				 submitHandler: function() {
+			           editDoctor();
+			        },
+				errorElement: "em",
+				errorPlacement: function ( error, element ) {
+					// Add the `help-block` class to the error element
+					error.addClass( "help-block" );
+
+					// Add `has-feedback` class to the parent div.form-group
+					// in order to add icons to inputs
+					element.parents( ".col-md-6" ).addClass( "has-feedback" );
+
+					if ( element.prop( "type" ) === "checkbox" ) {
+						error.insertAfter( element.parent("div" ) );
+					} else {
+						error.insertAfter( element );
+					}
+
+					// Add the span element, if doesn't exists, and apply the icon classes to it.
+				
+				},
+				
+				highlight: function ( element, errorClass, validClass ) {
+					$( element ).parents( ".col-md-6" ).addClass( "has-error" ).removeClass( "has-success" );
+				},
+				unhighlight: function ( element, errorClass, validClass ) {
+					$( element ).parents( ".col-md-6" ).removeClass( "has-error" );
+				},
+			
+				
+			} );
+		
+	});
+	</script>

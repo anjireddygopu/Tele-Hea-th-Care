@@ -1,0 +1,119 @@
+<link rel="import" href="script.html">
+<script src="js/languages.js"></script>
+<script src="js/languages-validation.js"></script>
+<div class="container-fluid">
+	<div class="row bg-title">
+		<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+			<h4 class="page-title">Language</h4>
+		</div>
+		<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+			<button onclick="addbtn()"
+				class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"
+				id="addbtn">New</button>
+		</div>
+	</div>
+	<div class="row" id="listdiv">
+		<div class="col-sm-12">
+			<div class="white-box">
+				<h3 class="box-title m-b-0"></h3>
+				<div class="table-responsive">
+					<table id="example23" class="display nowrap" cellspacing="0"
+						width="100%">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Active</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody id="dataa">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="adddiv">
+		<div class="col-sm-12">
+			<div class="white-box">
+				<form id="addform" action="">
+					<div class="row">
+
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-4">Name</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control"
+										placeholder="Enter Language Name" id="langname"
+										name="langname">
+									<!--<span class="help-block"> This is inline help </span>-->
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="checkbox checkbox-success checkbox-circle">
+								<input id="test" type="checkbox" checked /> <label>Active</label>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<button type="submit" value="submit"
+								class="fcbtn btn btn-info btn-outline btn-rounded btn-1f"
+								id="savebtn">Save</button>
+						</div>
+						<div class="col-md-1">
+							<button type="reset" value=cancel
+								class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f"
+								onclick="cancell()">Cancel</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="editdiv">
+		<div class="col-sm-12">
+			<div class="white-box">
+				<form id="editform" action="">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="form-group">
+								<label class="control-label col-md-6">Name</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" placeholder="Enter"
+										id="lang" name="lang">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="checkbox checkbox-success checkbox-circle">
+								<input id="testt" type="checkbox" /> <label for="checkbox-15">Active</label>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<button type="submit"
+								class="fcbtn btn btn-info btn-outline btn-rounded btn-1f" id="update">Update</button>
+						</div>
+						<div class="col-md-1">
+							<button type="reset"
+								class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f"
+								onclick="cancell()">Cancel</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+function addbtn(){
+    $('#editdiv').hide();
+    $('#listdiv').hide();
+    $('#adddiv').show();
+    $('#addbtn').hide();
+    }  
+    $(document).ready(function() {
+    	$('#adddiv').hide();
+        $('#editdiv').hide();
+        });
+ </script>

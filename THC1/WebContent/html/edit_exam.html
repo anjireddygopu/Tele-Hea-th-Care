@@ -1,0 +1,165 @@
+
+<link rel="import" href="script.html">
+<script src="js/generalexam.js"></script>
+			<div class="container-fluid">	
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="white-box" style="margin-top: 25px;">
+							<form class="form-horizontal" id="exam">
+								<div class="form-body">
+									<h3 class="box-title">General Exam</h3>
+									<hr class="m-t-0 m-b-20">
+									<div class="row">
+										<div class="col-md-4">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label col-md-5">Exam Type</label>
+														<div class="col-md-7">
+															<select name="Dropdown" id="type" class="form-control">
+																<option>select</option>
+																<option value="Inspection">Inspection</option>
+																<option value="Palpation">Palpation</option>
+
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label col-md-5">Exam
+															Specific</label>
+														<div class="col-md-7">
+															<select name="Dropdown" id="specific"
+																class="form-control">
+																<option value="select">select</option>
+																<option value="pulse_rate">Pulse rate</option>
+																<option value="throat">Throat</option>
+
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label col-md-5">Status</label>
+														<div class="col-md-7">
+															<select name="Dropdown" id="status" class="form-control">
+																<option value="select">select</option>
+																<option value="normal">Normal</option>
+																<option value="abnormal">Abnormal</option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label col-md-5">Progress</label>
+														<div class="col-md-7">
+															<select name="Dropdown" id="progress"
+																class="form-control">
+																<option value="select">select</option>
+																<option value="normal">Normal</option>
+																<option value="aggrevate">Aggrevate</option>
+																<option value="low">Low</option>
+
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label col-md-5">Date</label>
+														<div class="col-md-7">
+															<input type="date" class="form-control" id="date"
+																placeholder="5/8/2018">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label col-md-5">Description</label>
+														<div class="col-md-7">
+															<textarea rows="4" class="form-control" id="description"></textarea>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label col-md-5">Additional
+															Notes</label>
+														<div class="col-md-7">
+															<textarea rows="4" class="form-control" id="notes"></textarea>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-8">
+											<div class="table-responsive">
+												<table id="edit" class="display nowrap table table-bordered"
+													cellspacing="0" width="100%">
+													<thead>
+														<tr>
+															<th>Type</th>
+															<th>Specific</th>
+															<th>Status</th>
+															<th>Description</th>
+															<th>Edit</th>
+															<th>Remove</th>
+														</tr>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="row">
+												<div class="col-md-offset-3 col-md-9">
+													<button type="button" class="btn btn-primary btn-rounded"
+														id="hadd" onclick="post()">Add</button>
+													<button type="button" class="btn btn-primary btn-rounded"
+														id="hupdate" onclick="update()">Update</button>
+													<button type="reset" class="btn btn-default btn-rounded"
+														onclick="cancel()">
+														<i class="fa fa-times"></i> Cancel
+													</button>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+	
+	<script>
+		function cancel() {
+			reload_table();
+			$("#hadd").show();
+			$("#hupdate").hide();
+		}
+	</script>

@@ -1,0 +1,138 @@
+<link rel="import"href="script.html">
+	<script src="js/patient_immunization_txn_dtls1.js"></script>
+			<div class="container-fluid">
+				<div class="row bg-title">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">Immunization</h4>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="white-box">
+						<form action="#" class="form-horizontal" id="addform">
+							<div class="form-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<label class="control-label col-md-5">
+												Name</label>
+											<div class="col-md-7">
+												<select class="form-control" id="immunization" name="iname">
+													<option value="">--Immunization-Name--</option>	
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-5">
+												Date</label>
+											<div class="col-md-7">
+												<input type="date" class="form-control" id="idate" name="idate">
+											</div>
+										</div>
+									</div>
+									<!--/span-->
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-md-4">Route</label>
+											<div class="col-md-8">
+												<select class="form-control" id="ir" name="ir">
+													<option value="" disabled selected>--Route--</option>
+													<option value="1">IM</option>
+													<option value="2">ID</option>
+													<option value="3">SC</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<label class="control-label col-md-5">Administration
+												Site</label>
+											<div class="col-md-7">
+												<input type="text" class="form-control" id="ia" name="ia">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<label class="control-label col-md-3">Dose</label>
+											<div class="col-md-3">
+												<input type="text" class="form-control" placeholder="Amount"
+													id="iamount" name="iamount">
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control" placeholder="Units"
+													id="iunit" name="iunit">
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control" placeholder="Form"
+													id="iform" name="iform">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<label class="control-label col-md-5">Additional
+												Notes</label>
+											<div class="col-md-7">
+												<textarea rows="5" class="form-control" id="notes" name="notes"></textarea>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+									<div class="col-md-2" id="add_button">
+										<button type="button" class="fcbtn btn btn-info btn-outline btn-rounded btn-1f" 
+											value="update" onclick="save()">ADD</button>
+											</div>
+											<div class="col-md-2" id="update_button">
+										<button type="button" class="fcbtn btn btn-info btn-outline btn-rounded btn-1f" 
+											value="update" onclick="update1()">Update</button>
+											</div>
+											<div class="col-md-2" id="cancel_button">
+										<button type="reset" class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f" 
+											value="Cancel" onclick="cancel()">Clear</button>
+											</div>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+
+
+				<!--row -->
+				<div class="row" id="list">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<div class="table-responsive">
+								<table id="example23" class="display nowrap">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Name</th>
+											<th>Dose Amount</th>
+											<th>Dose Unit</th>
+											<th>Edit</th>
+											<th>Remove</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+	<script>
+	$("#update_button").hide();
+	
+	</script>
+	

@@ -1,0 +1,250 @@
+ 
+  
+    <style>
+		svg{
+  width: 100px;
+  height: 100px;
+  margin: 0 20px;
+  display:inline-block;
+}
+.local{
+    width: 30%;
+    position: absolute; 
+    right: 1.5%; 
+    bottom: 1.5%;
+     
+}
+.remote{
+    width: 100% ;position: relative;
+}
+	</style>
+
+<script src="chat.js"></script>
+<script src="../chat.js"></script>
+       
+            <div class="container-fluid" id="chat-container" data-status="1" data-user="" data-assigned="">
+                <div class="row bg-title" id="satellite">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Chat</h4>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" id="userlogout">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Patient</label>
+                            <div class="col-md-8 ">                                                                  
+                                    <select id="docname" name="docname" class="form-control" data-placeholder="Choose a Category" tabindex="1">                                    
+                                   </select> 
+                                    <!-- <input class="form-control" type="text" id="docname" name="docname"  data-placeholder="Choose a Category" tabindex="1"> -->
+                               </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-4 col-xs-12">
+                        <div class="form-group">                          
+                            <label class="control-label col-md-4">Doctor</label>
+                            <div class="col-md-8 ">                                                                  
+                                 <select id="assi" name="assi" class="form-control" data-placeholder="Choose a Category" tabindex="1">                                  
+                                </select> 
+                                <!-- <input class="form-control" type="text" id="assi" name="assi"  data-placeholder="Choose a Category" tabindex="1"> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <a href="countries-master-add.html" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Add</a>
+                    </div>-->
+                </div>
+                <div class="row bg-title" id="expert">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            <h4 class="page-title">Chat </h4>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" id="userlogout">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Doctor</label>
+                                <div class="col-md-8 ">                                                                  
+                                        <select id="assi1" name="assi1" class="form-control" data-placeholder="Choose a Category" tabindex="1">
+                                                                                   
+                                       </select> 
+                                        <!-- <input class="form-control" type="text" id="assi1" name="assi1"  data-placeholder="Choose a Category" tabindex="1"> -->
+                                   </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-4 col-xs-12">
+                            <div class="form-group">                          
+                                <label class="control-label col-md-4">Patient</label>
+                                <div class="col-md-8">                                                                  
+                                     <select id="docname1" name="docname1" class="form-control" data-placeholder="Choose a Category" tabindex="1" value="">                                   
+                                    </select> 
+                                    <!-- <input class="form-control" type="text" id="docname1" name="docname1"  data-placeholder="Choose a Category" tabindex="1"> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                            <a href="countries-master-add.html" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Add</a>
+                        </div>-->
+                    </div>
+                <!--row -->
+                <div class="row" id="show">
+                    <div class="col-md-7">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Video Chat
+                                <div class="panel-action">
+                                        <!-- <button class="btn btn-primary waves-effect btn-circle waves-light" type="button" onclick="javascript:a();"></button> -->
+                                        <button class="btn btn-primary waves-effect btn-circle waves-light" type="button" onclick="cal();calling();"><i class="icon-camrecorder" data-toggle="modal" data-target=".bs-example-modal-lg"></i></button>                              
+                                        <button class="btn btn-primary waves-effect btn-circle waves-light" type="button" onclick="hangup();"><i class="icon-earphones-alt"></i></button>
+                                    
+                                      
+                                </div>
+                            </div>
+                            <div class="panel-wrapper collapse in">
+                                <div class="panel-body">
+                                    <div id="video-chat">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div id="remotevideo-container" >
+                                                        <video id="remoteVideo" autoplay class="remote" ></video>                                                    
+                                                    <div id="localvideo-container">
+                                                            <button class="btn btn-primary waves-effect btn-circle waves-light " id="callEnd" type="button" onclick="hangup();" style="position: absolute; right: 50%; bottom: 15%;display: none"><i class="icon-earphones-alt"></i></button>
+                                                            <video id="localVideo" autoplay muted class="local"></video>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-6">
+                                                <div id="remotevideo-container">
+                                                    <video id="remoteVideo" autoplay style="width: 100%"></video>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="chat-main-box">
+
+                                <div class="chat-main-header">
+                                    <div class="p-10 p-t-0 b-b">
+                                        <h3 class="box-title">Chat Message</h3>
+                                    </div>
+                                </div>
+                                <div class="chat-box" id="text-chat" >
+                                    <div id="text-chat-main" >
+                                        <div id="text-chat-panel" class="chat-box chat-list" style="overflow-y:scroll;height:295px;">
+                                        </div>
+                                        <div class="row send-chat-box">
+                                                <div class="col-sm-1">&nbsp;</div>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control" id="send-text" placeholder="Type your message"></textarea>
+                                                <div class="custom-send">
+                                                    <a href="javacript:void(0)" class="cst-icon" data-toggle="tooltip" title="Insert Emojis">
+                                                        <i class="ti-face-smile"></i>
+                                                    </a>
+                                                    <a href="javacript:void(0)" class="cst-icon" data-toggle="tooltip" title="File Attachment">
+                                                        <i class="fa fa-paperclip"></i>
+                                                    </a>
+                                                    <button class="btn btn-danger btn-rounded" type="button" id="send">
+                                                        <i class="fab fa-gripfire"></i>Send</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--/row -->
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;" id='modal' >
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    
+                                </div>
+                                <div class="modal-body">
+                                <div class="row">
+                                <div class="col-md-3">&nbsp;</div>
+                                <div class="col-md-2"><img alt="male" src="../plugins/images/users/govinda.jpg" class="img-circle" width="75px"></div>
+                                <div class="col-md-2">
+                                    <h4 style="color: white" id="userName"></h4>
+                                    <svg version="1.1" id="L5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                          viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                          <circle fill="#ab8ce4" stroke="none" cx="4" cy="50" r="4">
+                            <animateTransform 
+                               attributeName="transform" 
+                               dur="1s" 
+                               type="translate" 
+                               values="0 15 ; 0 -15; 0 15" 
+                               repeatCount="indefinite" 
+                               begin="0.1"/>
+                          </circle>
+                          <circle fill="#ab8ce4" stroke="none" cx="19" cy="50" r="4">
+                            <animateTransform 
+                               attributeName="transform" 
+                               dur="1s" 
+                               type="translate" 
+                               values="0 10 ; 0 -10; 0 10" 
+                               repeatCount="indefinite" 
+                               begin="0.2"/>
+                          </circle>
+                          <circle fill="#ab8ce4" stroke="none" cx="34" cy="50" r="4">
+                            <animateTransform 
+                               attributeName="transform" 
+                               dur="1s" 
+                               type="translate" 
+                               values="0 5 ; 0 -5; 0 5" 
+                               repeatCount="indefinite" 
+                               begin="0.3"/>
+                          </circle>
+                          <circle fill="#ab8ce4" stroke="none" cx="49" cy="50" r="4">
+                            <animateTransform 
+                               attributeName="transform" 
+                               dur="1s" 
+                               type="translate" 
+                               values="0 2 ; 0 -2; 0 2" 
+                               repeatCount="indefinite" 
+                               begin="0.4"/>
+                          </circle>
+                        </svg>
+                        </div>
+                        <div class="col-md-2"><img alt="male" src="../plugins/images/users/genu.jpg" class="img-circle" width="75px"></div>
+                        <div class="col-md-3">&nbsp;</div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-4">&nbsp;</div>
+                                    <div class="col-md-4">
+                                    <button class="btn btn-success waves-effect btn-circle btn-lg waves-light" data-dismiss="modal" onclick="calling()"  type="button"><i class="icon-phone"></i></button>
+                                    <button class="btn btn-primary waves-effect btn-circle btn-lg waves-light" data-dismiss="modal" type="button"><i class="icon-camrecorder"></i></button>
+                                    <button class="btn btn-primary waves-effect btn-circle btn-lg waves-light" data-dismiss="modal" type="button"><i class="icon-microphone"></i></button>
+                                    <button class="btn btn-danger waves-effect btn-circle btn-lg waves-light" data-dismiss="modal" type="button" onclick="hangup()"><i class="icon-call-end"></i></button>
+                                    </div>
+                                <div class="col-md-4">&nbsp;</div>
+                                </div>
+            
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    </div>
+            </div>
+    <script>
+       $(document).ready(function(){
+          
+        if(sessionStorage.getItem("module")=="satellite"){
+        // alert("modulename is"+sessionStorage.getItem("module"));
+        $("#satellite").show();
+        $("#expert").hide();
+    }
+    else if(sessionStorage.getItem("module1")=="expertcenter"){
+        $("#satellite").hide();
+        $("#expert").show();
+    }
+
+       });
+    </script>
+           
+   
+   <!--  <script src="js/chat1.js"></script> -->

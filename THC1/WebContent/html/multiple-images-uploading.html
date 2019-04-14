@@ -1,0 +1,199 @@
+<link rel="import" href="script.html">
+<script src="../plugins/bower_components/cornerstone/cornerstone.min.js"></script>
+<script src="../plugins/bower_components/cornerstone/dicomParser.min.js"></script>
+<script src="../plugins/bower_components/cornerstone/cornerstoneMath.min.js"></script>
+<script src="../plugins/bower_components/cornerstone/cornerstoneTools.min.js"></script>
+<script src="../plugins/bower_components/cornerstone/cornerstoneWebImageLoader.js"></script>
+<script src="../plugins/bower_components/cornerstone/cornerstoneWADOImageLoader.js"></script>
+<script src="../plugins/bower_components/cornerstone/uids.js"></script>
+<script src="../plugins/bower_components/cornerstone/initializeWebWorkers.js"></script>
+<link rel="stylesheet" href="../plugins/bower_components/cornerstone/cornerstone.min.css">
+<link href="../plugins/bower_components/icheck/skins/all.css" rel="stylesheet">
+<script
+	src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
+<script src="js/file-uploading.js"></script>
+<!-- for this page -->
+<script src="../plugins/bower_components/icheck/icheck.min.js"></script>
+<script src="../plugins/bower_components/icheck/icheck.init.js"></script>
+			<div class="container-fluid">
+				<div class="row bg-title">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">Images Uploading</h4>
+					</div>
+					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+						<button
+							class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light" id="badd"
+							onclick="add()">Add</button>
+							<button type="button" class="btn btn-default btn-rounded" id="cancel"
+													onclick="cancel()">
+													<i class="fa fa-times"></i> Cancel
+												</button>
+					</div>
+				</div>
+				<!--row -->
+				<div class="row" id="list">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<h3 class="box-title m-b-0"></h3>
+							<div class="table-responsive">
+								<table id="example" class="display nowrap">
+									<thead>
+										<tr>
+											<th>Document Id</th>
+											<th>MR Number</th>
+											<th>Episode Id</th>
+											<th>Visit Id</th>
+											<th>Document Name</th>
+											<th>Download</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" id="add">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<form id="upload_form" enctype="multipart/form-data" action="#"	class="form-horizontal">
+								<div class="form-body">
+									<hr class="m-t-0 m-b-20">
+									<div class="row">
+										<div class="col-md-5 ">
+											<div class="form-group">
+												<label class="control-label col-md-5">Document
+													Description</label>
+												<div class="col-md-7">
+													<input type="text" class="form-control" id="dname"
+														name="dname" placeholder="">
+													<!--<span class="help-block"> This is inline help </span>-->
+												</div>
+											</div>
+										</div>
+										<div class="col-md-5">
+											<div class="form-group">
+												<label class="control-label col-md-5"></label>
+												<div class="col-md-7">
+													<input type="file" class="form-control" id="fileupload"
+														name="fileupload" accept="file_extension" multiple>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div id="divFiles"></div>
+									</div>
+								</div>
+							</form>
+							<div class="form-actions">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-md-offset-3 col-md-9">
+												<button type="button" class="btn btn-primary btn-rounded"
+													onclick="uploadFiles()" id="save">
+													<i class="fa fa-check"></i> Upload
+												</button>
+												<button type="button" class="btn btn-default btn-rounded"
+													onclick="cancel()">
+													<i class="fa fa-times"></i> Cancel
+												</button>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row"  id="view">
+				
+					<div class="col-md-8 col-lg-8 col-sm-12" >
+                        <div class="panel panel-default">
+                              <div class="panel-heading">
+                            <button class="btn btn-info waves-effect waves-light" id="wwwc"> <i class="ti-palette pull-right" title="Color Swatch" data-toggle="tooltip"></i></button>
+							<button class="btn btn-info waves-effect waves-light" id="pan"> <i class="ti-move pull-right" title="Pan" data-toggle="tooltip"></i></button>
+				<button class="btn btn-info waves-effect waves-light" id="zoom"> <i class="ti-zoom-in pull-right" title="Zoom" data-toggle="tooltip"></i></button>
+				<button class="btn btn-info waves-effect waves-light" id="rectangleroi"> <i class="ti-control-stop pull-right" title="Rectangle ROI" data-toggle="tooltip"></i></button>
+				<button class="btn btn-info waves-effect waves-light" id="elipticalroi"> <i class="ti-control-record pull-right" title="Elliptical ROI" data-toggle="tooltip"></i></button>
+				<button class="btn btn-info waves-effect waves-light" id="length"> <i class="ti-ruler-alt pull-right" title="Length" data-toggle="tooltip"></i></button>
+				<button class="btn btn-info waves-effect waves-light" id="probe"> <i class="ti-more pull-right" title="Probe" data-toggle="tooltip"></i></button>
+				<button class="btn btn-info waves-effect waves-light" id="angle"> <i class="ti-angle-left pull-right" title="Angle" data-toggle="tooltip"></i></button>
+				<button class="btn btn-info waves-effect waves-light" id="highlight"> <i class="ti-target pull-right" title="Highlight" data-toggle="tooltip"></i></button>
+				<button class="btn btn-info waves-effect waves-light" id="freefromroi"> <i class="ti-vector pull-right" title="Freeform ROI" data-toggle="tooltip"></i></button>
+				<!-- <button class="btn btn-info waves-effect waves-light" id="erase"> <i class="ti-eraser pull-right" title="Erase" data-toggle="tooltip"></i></button> -->
+							</div>
+                            <div class="panel-wrapper collapse in">
+                                <div class="panel-body">
+									<div class="view-img" id="dicomImage"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><i class="ti-image"></i> Documents </div>
+                            <div class="panel-wrapper collapse in">
+                                <div class="panel-body">
+                                    <ul class="icheck-list">
+                                                <li>
+                                                    <input type="checkbox" class="check" data-checkbox="icheckbox_line-blue" data-label="Prescriptions">
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="check" checked data-checkbox="icheckbox_line-blue" data-label="X-Rays">
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" class="check" disabled data-checkbox="icheckbox_line-blue" data-label="Reports">
+                                                </li>
+                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+               </div>
+				</div>
+			
+		
+		
+	
+	<!-- for this page -->
+	<script>
+ $(document).ready( function (){
+	 $("#cancel").hide();
+	  $("#list").show();
+	  $("#add").hide();
+	  $("#view").hide();
+	  ShowLists()
+		    });  
+$('input[type=file]').change(function () {
+	  $('#divFiles').html('');
+		     for (var i = 0; i < this.files.length; i++) { //Progress bar and status label's for each file genarate dynamically
+		          var fileId = i;
+		          $("#divFiles").html(
+		        		  '<div class="col-md-12">' +
+		        		
+		                  '<div class=" progress-bar progress-bar-striped active" id="progressbar_' + fileId + '" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>'+ 
+		                  '</div>'+
+		                  '<div class="col-md-12">' +
+		                 ' <div class="row">'+
+		                       '<div class="col-md-6">'+ 
+		                          '<input type="button" class="btn btn-danger" style=" display:none;line-height:6px;height:25px" id="cancel_' + fileId + '" value="cancel">' +
+		                       '</div>' +
+		                       '</div>'+
+		                       '<div class="col-md-6">' +
+		                          '<p class="progress-status" style="text-align: right;margin-right:-15px;font-weight:bold;color:saddlebrown" id="status_' + fileId + '"></p>' +
+		                       '</div>'+ 
+		                  '</div>'+
+		                  '<div class="col-md-12">' +
+		                       '<p id="notify_' + fileId + '" style="text-align: right;"></p>' +
+		                 
+		                     '</div>');
+		          
+		               }
+		      });	  
+
+
+  </script>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="../plugins/images/favicon.png">
+<title>TeleHealthcare</title>
+<!-- Bootstrap Core CSS -->
+<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="../plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css"
+	rel="stylesheet">
+<!-- Menu CSS -->
+<link
+	href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
+	rel="stylesheet">
+<!-- morris CSS -->
+<link href="../plugins/bower_components/morrisjs/morris.css"
+	rel="stylesheet">
+<!-- animation CSS -->
+<link href="css/animate.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="css/style.css" rel="stylesheet">
+<!-- color CSS -->
+<link href="css/colors/purple.css" id="theme" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link
+	href="../plugins/bower_components/datatables/jquery.dataTables.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css"
+	rel="stylesheet" type="text/css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../plugins/bower_components/jquery/dist/jquery.js"></script>
+<script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+	<script src="js/patient-immunization-txn-dtls.js"></script>
+	<!-- Preloader -->
+	<div class="preloader">
+		<div class="cssload-speeding-wheel"></div>
+	</div>
+	<div id="wrapper">
+		<!-- Navigation -->
+		<nav class="navbar navbar-default navbar-static-top m-b-0">
+			<div class="navbar-header">
+				<a class="navbar-toggle hidden-sm hidden-md hidden-lg "
+					href="javascript:void(0)" data-toggle="collapse"
+					data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+				<div class="top-left-part">
+					<a class="logo" href="index.html"><b><img
+							src="../plugins/images/thclogo.png" alt="home" /></b><span
+						class="hidden-xs"><strong>tele</strong>healthcare</span></a>
+				</div>
+				<ul class="nav navbar-top-links navbar-left hidden-xs">
+					<li><a href="javascript:void(0)"
+						class="open-close hidden-xs waves-effect waves-light"><i
+							class="icon-arrow-left-circle ti-menu"></i></a></li>
+					<li>
+						<form role="search" class="app-search hidden-xs">
+							<input type="text" placeholder="Search..." class="form-control">
+							<a href=""><i class="fa fa-search"></i></a>
+						</form>
+					</li>
+				</ul>
+				<ul class="nav navbar-top-links navbar-right pull-right">
+
+					<li class="dropdown"><a class="dropdown-toggle profile-pic"
+						data-toggle="dropdown" href="#"> <img
+							src="../plugins/images/users/d1.jpg" alt="user-img" width="36"
+							class="img-circle"><b class="hidden-xs">Dr. SomeName</b>
+					</a>
+						<ul class="dropdown-menu dropdown-user animated flipInY">
+							<li><a href="javascript:void(0)"><i class="ti-user"></i>
+									My Profile</a></li>
+							<li><a href="javascript:void(0)"><i class="ti-email"></i>
+									Inbox</a></li>
+							<li><a href="javascript:void(0)"><i class="ti-settings"></i>
+									Account Setting</a></li>
+							<li><a href="login.html"><i class="fa fa-power-off"></i>
+									Logout</a></li>
+						</ul> <!-- /.dropdown-user --></li>
+					<li class="right-side-toggle"><a
+						class="waves-effect waves-light" href="javascript:void(0)"><i
+							class="ti-settings"></i></a></li>
+					<!-- /.dropdown -->
+				</ul>
+			</div>
+			<!-- /.navbar-header -->
+			<!-- /.navbar-top-links -->
+			<!-- /.navbar-static-side -->
+		</nav>
+		<!-- Left navbar-header -->
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse slimscrollsidebar">
+				<ul class="nav" id="side-menu">
+					<li class="sidebar-search hidden-sm hidden-md hidden-lg">
+						<!-- input-group -->
+						<div class="input-group custom-search-form">
+							<input type="text" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
+						</div> <!-- /input-group -->
+					</li>
+					<li><a href="index.html" class="waves-effect"><i
+							class="ti-dashboard p-r-10"></i> <span class="hide-menu">Dashboard</span></a>
+					</li>
+					<li class="nav-small-cap m-t-10">-- Professional</li>
+					<li><a href="javascript:void(0);" class="waves-effect"><i
+							class="ti-calendar p-r-10"></i> <span class="hide-menu">
+								Appointment <span class="fa arrow"></span>
+						</span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="#">Doctor Schedule</a></li>
+							<li><a href="#">Book Appointment</a></li>
+						</ul></li>
+					<li><a href="javascript:void(0);" class="waves-effect"><i
+							class="fa fa-user-md p-r-10"></i> <span class="hide-menu">
+								Doctors <span class="fa arrow"></span>
+						</span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="#">All Doctors</a></li>
+							<li><a href="#">Add Doctor</a></li>
+							<li><a href="#">Edit Doctor</a></li>
+							<li><a href="#">Doctor Profile</a></li>
+						</ul></li>
+					<li><a href="javascript:void(0);" class="waves-effect"><i
+							class="icon-people p-r-10"></i> <span class="hide-menu">
+								Patients <span class="fa arrow"></span>
+						</span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="#">All Patients</a></li>
+							<li><a href="#">Add Patient</a></li>
+							<li><a href="#">Edit Patient</a></li>
+							<li><a href="#">Patient Profile</a></li>
+						</ul></li>
+					<li><a href="javascript:void(0);" class="waves-effect"><i
+							class="icon-chart p-r-10"></i> <span class="hide-menu">
+								Reports <span class="fa arrow"></span>
+						</span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="#">Payment Report</a></li>
+							<li><a href="#">Income Report</a></li>
+							<li><a href="#">Sales Report</a></li>
+						</ul></li>
+					<li><a href="javascript:void(0);" class="waves-effect"><i
+							class="fa fa-inr p-r-10"></i> <span class="hide-menu">
+								Payments <span class="fa arrow"></span>
+						</span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="#">Payments</a></li>
+							<li><a href="#">Add Payment</a></li>
+							<li><a href="#">Patient Invoice</a></li>
+						</ul></li>
+					<li><a href="javascript:void(0)" class="waves-effect"><i
+							data-icon="F" class="linea-icon linea-software fa-fw"></i> <span
+							class="hide-menu">Dropdown<span class="fa arrow"></span></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="javascript:void(0)">Second Level Item</a></li>
+							<li><a href="javascript:void(0)">Second Level Item</a></li>
+							<li><a href="javascript:void(0)" class="waves-effect">Third
+									Level <span class="fa arrow"></span>
+							</a>
+								<ul class="nav nav-third-level">
+									<li><a href="javascript:void(0)">Third Level Item</a></li>
+									<li><a href="javascript:void(0)">Third Level Item</a></li>
+									<li><a href="javascript:void(0)">Third Level Item</a></li>
+									<li><a href="javascript:void(0)">Third Level Item</a></li>
+								</ul></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Left navbar-header end -->
+		<!-- Page Content -->
+		<div id="page-wrapper">
+			<div class="container-fluid">
+				<div class="row bg-title">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">Immunization Master</h4>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="white-box">
+						<form action="#" class="form-horizontal" id="addform">
+							<div class="form-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<label class="control-label col-md-5">Immunization
+												Name</label>
+											<div class="col-md-7">
+												<select class="form-control" id="immunization" name="iname">
+													<option value="">--Immunization-Name--</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label col-md-5">Immunization
+												Date</label>
+											<div class="col-md-7">
+												<input type="date" class="form-control" id="idate" name="idate">
+											</div>
+										</div>
+									</div>
+									<!--/span-->
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-md-4">Route</label>
+											<div class="col-md-8">
+												<select class="form-control" id="ir" name="ir">
+													<option value="">--Route--</option>
+													<option value="1">IM</option>
+													<option value="2">ID</option>
+													<option value="3">SC</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<label class="control-label col-md-5">Administration
+												Site</label>
+											<div class="col-md-7">
+												<input type="text" class="form-control" id="ia" name="ia">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<label class="control-label col-md-3">Dose</label>
+											<div class="col-md-3">
+												<input type="text" class="form-control" placeholder="Amount"
+													id="iamount" name="iamount">
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control" placeholder="Units"
+													id="iunit" name="iunit">
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control" placeholder="Form"
+													id="iform" name="iform">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-8">
+										<div class="form-group">
+											<label class="control-label col-md-3">Additional
+												Notes</label>
+											<div class="col-md-9">
+												<textarea rows="5" class="form-control" id="notes" name="notes"></textarea>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<button type="button" class="btn btn-success" 
+											id="add">add</button>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+				<!--row -->
+				<div class="row" id="list">
+					<div class="col-sm-12">
+						<div class="white-box">
+							<div class="table-responsive">
+								<table id="example23" class="display nowrap">
+									<thead>
+										<tr>
+											<th>Immunization Id</th>
+											<th>Immunization Name</th>
+											<th>Immunization Date</th>
+											<th>Immunization route</th>
+											<th>Administration Site</th>
+											<th>Dose Amount</th>
+											<th>Dose Unit</th>
+											<th>Dose Form</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<input type="submit"  class="btn btn-success" value="save" id="save" onclick="post()">
+			</div>
+			<!--/row -->
+			<!-- .right-sidebar -->
+			<div class="right-sidebar">
+				<div class="slimscrollright">
+					<div class="rpanel-title">
+						<span><i class="ti-close right-side-toggle"></i></span>
+					</div>
+					<div class="r-panel-body">
+						<ul class="m-t-20 chatonline">
+							<li><b>Available</b></li>
+							<li><a href="javascript:void(0)"><img
+									src="../plugins/images/users/d1.jpg" alt="user-img"
+									class="img-circle"> <span>Dr. Sooraj<small
+										class="text-success">online</small></span></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="../plugins/images/users/d3.jpg" alt="user-img"
+									class="img-circle"> <span>Dr. Srinija <small
+										class="text-warning">Away</small></span></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="../plugins/images/users/d2.jpg" alt="user-img"
+									class="img-circle"> <span>Dr. Rajesh<small
+										class="text-danger">Busy</small></span></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="../plugins/images/users/d4.jpg" alt="user-img"
+									class="img-circle"> <span>Dr. Aman <small
+										class="text-muted">Offline</small></span></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="../plugins/images/users/5.jpg" alt="user-img"
+									class="img-circle"> <span>Mr. Joseph <small
+										class="text-success">online</small></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- /.right-sidebar -->
+		</div>
+		<!-- /.container-fluid -->
+		<footer class="footer text-center"> 2018 &copy;
+			TeleHealthcare. Powered by Cybermate Infotek Ltd.,</footer>
+	</div>
+	<!-- /#page-wrapper -->
+
+	<!-- /#wrapper -->
+	<!-- jQuery -->
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="bootstrap/dist/js/tether.min.js"></script>
+	<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+	<script
+		src="../plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+	<!-- Menu Plugin JavaScript -->
+	<script
+		src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+	<!--slimscroll JavaScript -->
+	<script src="js/jquery.slimscroll.js"></script>
+	<!--Wave Effects -->
+	<script src="js/waves.js"></script>
+	<!-- Custom Theme JavaScript -->
+	<script src="js/custom.min.js"></script>
+	<!--Style Switcher -->
+	<script
+		src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+
+	<script
+		src="../plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+	<!-- start - This is for export functionality only -->
+	<script
+		src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+	<script
+		src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+	<script
+	
+		src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+	<script
+		src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+	<script
+		src="../plugins/bower_components/jquery/dist/jquery.validate.js"></script>
+	<script
+		src="../plugins/bower_components/jquery/dist/jquery.validate.min.js"></script>58/140
+	<!-- end - This is for export functionality only -->
+	<script>
+		var oTable;
+		$(document).ready(
+				function() {
+					oTable = $('#example23').DataTable(
+					{
+						"paging" : false,
+						"searching" : false,
+						"bInfo" : false
+					}
+					);
+					$('#add').on(
+							'click',
+							function() {
+								var iname = $("#immunization option:selected").text();
+								var iid = $("#immunization option:selected").val();
+								var idate = $("#idate").val();
+								var ir = $("#ir option:selected").text();
+								var ia = $("#ia").val();
+								var iamount = $("#iamount").val();
+								var iunit = $("#iunit").val();
+								var iform = $("#iform").val();
+								oTable.row.add(
+										[iid, iname,idate, ir, ia, iamount, iunit,
+												iform ]).draw(false);
+							});
+				});
+	</script>
+</body>
+</html>

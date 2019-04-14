@@ -1,0 +1,130 @@
+<link rel="import" href="script.html">
+    <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search hidden-sm hidden-md hidden-lg">
+                        <!-- input-group -->
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search..."> <span class="input-group-btn">
+            <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
+            </span> </div>
+                        <!-- /input-group -->
+                    </li>
+                    <li> <a href="index.html" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Dashboard</span></a> </li>
+                    <li id="master"> <a href="javascript:void(0)" class="waves-effect"><i class="ti-wand p-r-10"></i> <span class="hide-menu">Master Data</span></a>
+                     </li>
+                     <li> <a href="javascript:expertcenter()" class="waves-effect"><i class="ti-support p-r-10"></i> <span class="hide-menu">Expert Facility</span></a>
+                     </li>
+                     <li> <a href="javascript:satellitecenter()" class="waves-effect"><i class="ti-rocket p-r-10"></i> <span class="hide-menu">Satellite Facility</span></a>
+                     </li>
+                     <li> <a href="javascript:facilitator()" class="waves-effect"><i class="fa fa-building-o p-r-10"></i> <span class="hide-menu">Facilitator</span></a>
+                     </li>
+                     <li> <a href="javascript:googlemap()" class="waves-effect"><i class="fa fa-crosshairs p-r-10"></i> <span class="hide-menu">Location</span></a>
+                     </li>
+                     <li> <a href="javascript:doctor()" class="waves-effect"><i class="fa fa-user-md p-r-10"></i> <span class="hide-menu">Doctor</span></a>
+                     </li>
+                     <li> <a href="javascript:patient()" class="waves-effect"><i class="fa fa-wheelchair p-r-10"></i> <span class="hide-menu">Patient</span></a>
+                     </li>
+                     <li> <a href="javascript:casedetails()" class="waves-effect"><i class="ti-file p-r-10"></i> <span class="hide-menu">Case Info</span></a>
+                     </li>
+                     <li> <a href="javascript:logout()" class="waves-effect"><i class="ti-power-off p-r-10"></i> <span class="hide-menu">Logout</span></a>
+                     </li>
+                </ul>
+                <div id="patientinformation">
+                <ul class="nav nav-second-level" id="side-menu">
+                <li> <a href="index.html"> <i class="ti-home p-r-10"></i> Home</a> </li>
+                <li> <a href="javascript:allergytxn()"><i class="fa fa-font p-r-10"></i> Allergy</a> </li>
+ 				<li> <a href="javascript:habittxn()"><i class="fa fa-beer p-r-10"></i> Habit</a> </li>
+ 				<li> <a href="javascript:immuni()"><i class="ti-control-forward p-r-10"></i> Immunization</a> </li>
+ 				<li> <a href="javascript:pasthistory()"> <i class="ti-back-left p-r-10"></i> Past History</a> </li>
+ 				<li> <a href="javascript:familydiseases()"><i class="fa fa-users p-r-10"></i>Family Diseases</a> </li>
+ 				
+ 				</ul>
+                
+                </div>
+                
+               <div id="caseinfo">
+                <ul class="nav nav-second-level" id="side-menu">
+                <li> <a href="index.html"> <i class="ti-home p-r-10"></i> Home</a> </li>
+                <li> <a href="javascript:chief()"> <i class="fa fa-pencil-square-o p-r-10"></i> Chief Complaint</a> </li>
+ 				<li> <a href="javascript:sign()"><i class="ti-control-forward p-r-10"></i> Sign</a> </li>
+ 				<li> <a href="javascript:symptom()"> <i class="ti-search p-r-10"></i> Symptom</a> </li>
+ 				<li> <a href="javascript:vitals()"><i class="fa fa-street-view p-r-10"></i> Vitals</a> </li>
+ 				<li> <a href="javascript:generalExam()"> <i class="ti-search p-r-10"></i> General Examination</a> </li>
+ 				<li> <a href="javascript:diettxn()"> <i class="fa fa-leaf p-r-10"></i> Diet</a> </li>
+ 				<li> <a href="javascript:drugtxn()"> <i class="icon-ban p-r-10"></i> Drug</a> </li>
+ 				<li> <a href="javascript:diagnosis()"><i class="ti-control-forward p-r-10"></i> Diagnoses</a> </li>
+ 				<li> <a href="javascript:report()"><i class="fa fa-file-text-o p-r-10"></i> Reports</a> </li>
+ 				<li> <a href="javascript:video()"  id="video1"> <i class="ti-video-camera p-r-10"></i> Video Conference</a> </li>
+ 				<li> <a href="javascript:labtest()"> <i class="fa fa-flask p-r-10"></i> Lab Test</a> </li>
+ 				<li> <a href="javascript:postdetails()"> <i class="fa fa-upload p-r-10"></i> Post Details</a> </li>
+ 				<li> <a href="javascript:feedback()"> <i class="fa fa-bullhorn p-r-10"></i> Feedback</a> </li>
+ 				
+ 				</ul>
+                
+                </div>
+ 				
+ 				<div id="masterinformation">
+				 <ul class="nav" id="side-menu">
+				 <li> <a href="index.html"><i class="ti-home p-r-10"></i> Home</a> </li>
+				 <li> <a href="javascript:void(0);" class="waves-effect"><i class="ti-wand p-r-10"></i> <span class="hide-menu"> Master Data <span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                <li> <a href="javascript:allergies()"><i class="fa fa-font p-r-10"></i> Allergy</a> </li>
+				<li> <a href="javascript:blood()"><i class="icon-drop p-r-10"></i> Blood Group</a> </li>
+ 				<li> <a href="javascript:countries()"><i class="icon-globe p-r-10"></i> Country</a> </li>
+ 				<li> <a href="javascript:districts()"><i class="icon-location-pin p-r-10"></i> District</a> </li>
+ 				<li> <a href="javascript:diseases()"><i class="fa fa-hand-rock-o p-r-10"></i> Disease</a> </li>
+ 				<li> <a href="javascript:drug()"><i class="icon-ban p-r-10"></i> Drug</a> </li>
+ 				<li> <a href="javascript:dosage()"><i class="fa fa-eyedropper p-r-10"></i> Dosage</a> </li>
+ 				<li> <a href="javascript:diet()"><i class="fa fa-leaf p-r-10"></i> Diet</a> </li>
+ 				<li> <a href="javascript:habit()"><i class="fa fa-beer p-r-10"></i> Habit</a> </li>
+ 				<li> <a href="javascript:income()"><i class="fa fa-inr p-r-10"></i> Income</a> </li>
+ 				<li> <a href="javascript:immunization()"><i class="ti-control-forward p-r-10"></i> Immunization</a> </li>
+ 				<li> <a href="javascript:languages()"><i class="fa fa-language p-r-10"></i> Language</a> </li>
+ 				<li> <a href="javascript:measure()"><i class="fa fa-sort-numeric-asc p-r-10"></i> Units</a> </li>
+ 				<li> <a href="javascript:nationality()"><i class="fa fa-flag-checkered p-r-10"></i> Nationality</a> </li>
+ 				<li> <a href="javascript:occupation()"><i class="fa fa-black-tie p-r-10"></i> Occupation</a> </li>
+ 				<li> <a href="javascript:zip()"><i class="icon-location-pin p-r-10"></i> ZIP Code</a> </li>
+ 				<li> <a href="javascript:religion()"><i class="fa fa-header p-r-10"></i> Religion</a> </li>
+ 				<li> <a href="javascript:states()"><i class="icon-location-pin p-r-10"></i> State</a> </li>
+ 				<li> <a href="javascript:salutation()"><i class="ti-control-forward p-r-10"></i> Salutation</a> </li>
+ 				<li> <a href="javascript:Specialization()"><i class="fa fa-angellist p-r-10"></i> Specialization</a> </li>
+ 				<li> <a href="javascript:towns()"><i class="icon-location-pin p-r-10"></i> Town</a> </li>
+ 				<li> <a href="javascript:testgroup()"><i class="fa fa-flask p-r-10"></i> Test Group</a> </li>
+ 				<li> <a href="javascript:test()"><i class="fa fa-flask p-r-10"></i> Test</a> </li>
+ 				
+                        </ul>
+                    </li>
+				 
+ 				</ul>
+ 				</div>
+            </div>
+        </div>
+ 
+ <script>
+ $("#patientinformation").hide();
+ $("#caseinfo").hide();
+ $("#masterinformation").hide();
+
+ $("#patient").on("click",function(){
+	$("#page-wrapper").empty();
+	 $("#side-menu").hide();
+	 $("#patientinformation").show();
+ });
+ $("#case").on("click",function(){
+	$("#page-wrapper").empty();
+	 $("#side-menu").hide();
+	 $("#caseinformation").show();
+ });
+ $("#master").on("click",function(){
+	 $("#page-wrapper").empty();
+	 $("#side-menu").hide();
+	 $("#masterinformation").show();
+	 
+ });
+</script>
+
+    
+ 
+  
+  

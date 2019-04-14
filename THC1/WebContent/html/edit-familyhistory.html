@@ -1,0 +1,83 @@
+  <link rel="import" href="script.html">
+<script src="js/editfamilyhistory.js"></script>
+
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Patient History</h4>
+                    </div>                      
+                    </div>
+                    <!--row -->
+                <div class="row">
+                   <div class="col-sm-12">
+                       <div class="white-box">
+                           <form id="form1">
+                           <div class="row">
+							<div class="col-md-6">
+							<div class="form-group">
+							
+							<label class="control-label col-md-4">Patient History</label>
+							
+							<div class="col-md-5">
+							
+							<select class="form-control" name="diseasenme" id="diseasenme" value="">
+							<option hidden="true">Select</option>
+							</select>
+                           	</div>
+                           	<div class="col-md-1"><button type="button" name="addbtn" class="fcbtn btn btn-info btn-outline btn-rounded btn-1f" id="addbtn" >Add To List</button></div>
+                           	</div>
+                           	</div>
+                           	</div>
+                           	<div class="row">
+    				<div class="col-md-6">
+                           	<div class="form-group">
+                           	<label class="control-label col-md-4" for="exampleFormControlTextarea2">Notes</label>         	
+                           	
+                           	<div class="col-md-8">
+    				<textarea class="form-control rounded-0" id="textareaa" name="textareaa" rows="3" cols="50" ></textarea>
+                           </div>
+                           	</div>
+                           	</div>
+    				</div>
+						</form>
+                       </div>
+                   </div>
+                     
+               </div>
+
+  <!--End of list div -->
+                      <!--row -->
+                <div class="row" id="adddiv">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                        <div class="row">
+                  		<div class="table-responsive">
+                                <table id="example" class="table table-hover table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                        	<th>Disease Name</th>
+                                            <th>Mother</th>
+                                           	<th>Father</th>
+                                            <th>Brother</th>
+                                            <th>Sister</th>
+                                            <th>Paternal</th>
+                                            <th>Maternal</th>
+                                            <th>Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dataaa">
+									</tbody>
+                                </table>
+                            </div>
+                            </div>
+                            
+                            <div class="row">
+                            <div class="col-md-1"><button type="submit" value="submit" class="fcbtn btn btn-info btn-outline btn-rounded btn-1f" id="savebtn">Save</button></div>
+					<div class="col-md-1"><button type="reset" value=cancel class="fcbtn btn btn-danger btn-outline btn-rounded btn-1f" id="cancel()">Cancel</button></div>
+                            </div>
+                    </div>                 
+                </div>
+                </div>
+                <!--/row -->
+                </div>
